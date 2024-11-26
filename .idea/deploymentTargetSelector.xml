@@ -9,6 +9,9 @@
 >>>>>>> c711577234fb4567415f327fe1f6542a71053bbf
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="MainDangKy">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>
