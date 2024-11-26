@@ -1,0 +1,5 @@
+<!-- res/drawable/rounded_button.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#006d77"/>  <!-- Màu nền của Button -->
+    <corners android:radius="10dp"/>    <!-- Độ bo tròn góc của Button -->
+</shape>
