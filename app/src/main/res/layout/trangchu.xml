@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#edf6f9">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:background="#006d77">
+        <EditText
+            android:drawableStart="@drawable/glass"
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:hint="Tìm kiếm"
+            android:textSize="17sp"
+            android:layout_marginLeft="3dp"
+            android:padding="6dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/radious_ha"
+            />
+        <ImageView
+            android:id="@+id/user_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_height="48dp"
+                android:textSize="14sp"
+                android:text="tiểu thuyết" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_height="48dp"
+                android:textSize="14sp"
+                android:text="văn học" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_height="48dp"
+                android:textSize="14sp"
+                android:text="truyện dân gian" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_height="48dp"
+                android:textSize="14sp"
+                android:text="giáo dục" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_height="48dp"
+                android:textSize="14sp"
+                android:text="truyện ngắn" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:orientation="horizontal">
+        <ImageView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/banner1"
+        android:scaleType="fitCenter" />
+        </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NỔI BẬT"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="10dp"/>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+                <ImageView
+                    android:id="@+id/img_book_cover1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="185dp"
+                    android:src="@drawable/book1"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center" />
+                <TextView
+                    android:id="@+id/txt_book_title1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="Mắt biếc"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/txt_book_author1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="N.N.Ánh"
+                    android:textSize="18sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+                <ImageView
+                    android:id="@+id/img_book_cover2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="185dp"
+                    android:src="@drawable/book2"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center" />
+                <TextView
+                    android:id="@+id/txt_book_title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="Thành phố"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/txt_book_author2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="N.T.Bình"
+                    android:textSize="18sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+                <ImageView
+                    android:id="@+id/img_book_cover3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="185dp"
+                    android:src="@drawable/book3"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center" />
+                <TextView
+                    android:id="@+id/txt_book_title3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="Ông nội"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/txt_book_author3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pearson"
+                    android:textSize="18sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="MỚI XUẤT BẢN"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"/>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none"> <!-- Ẩn thanh cuộn nếu muốn -->
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+                <ImageView
+                    android:id="@+id/img_book_cover4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="185dp"
+                    android:src="@drawable/book4"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center" />
+                <TextView
+                    android:id="@+id/txt_book_title4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="Khu rừng"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/txt_book_author4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vanderah"
+                    android:textSize="18sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+                <ImageView
+                    android:id="@+id/img_book_cover5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="185dp"
+                    android:src="@drawable/book5"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center" />
+                <TextView
+                    android:id="@+id/txt_book_title5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="Mèo vằn"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/txt_book_author5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amado"
+                    android:textSize="18sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+                <ImageView
+                    android:id="@+id/img_book_cover6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="185dp"
+                    android:src="@drawable/book6"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center" />
+                <TextView
+                    android:id="@+id/txt_book_title6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="Việt Nam"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/txt_book_author6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="N.T.Tộ"
+                    android:textSize="18sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/btn_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TRANG CHỦ"
+                android:layout_marginEnd="8dp"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:background="#00A79D"
+                android:textSize="18sp"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/btn_reading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ĐANG ĐỌC"
+                android:layout_marginEnd="8dp"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:background="#65AFAB"
+                android:textSize="18sp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btn_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YÊU THÍCH"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:background="#65AFAB"
+                android:textSize="18sp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -5,6 +5,12 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+<<<<<<< HEAD
+=======
+      <SelectionState runConfigName="MainTrangChu">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+>>>>>>> dd5b3b6b98f03476cc97959ba330dd86450da394
     </selectionStates>
   </component>
 </project>
