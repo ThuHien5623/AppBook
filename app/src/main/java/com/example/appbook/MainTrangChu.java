@@ -9,7 +9,7 @@ public class MainTrangChu extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) { // Đổi Oncreate thành onCreate
         super.onCreate(savedInstanceState); // Đổi saveInstanceState thành savedInstanceState
-        setContentView(R.layout.trangchu);
+        setContentView(R.layout.book_list);
     }
 }
 
