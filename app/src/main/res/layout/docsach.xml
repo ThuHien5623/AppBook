@@ -1,0 +1,125 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Thanh điều hướng -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <!-- Nút Trang chủ -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/book_icon"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/homepage" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trang chủ"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Nút Quay lại -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/back_icon"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quay lại"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Nút Yêu thích -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/favorite_icon"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/yeuthich" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yêu thích"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Nút Cài đặt -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/settings_icon"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/settings" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cài đặt"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+    <!-- Nội dung cuộn văn bản -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Ngày xưa, vào những buổi chiều mưa, tôi và Hà Lan thường ngồi trên thềm nhà ngắm những giọt mưa rơi rả rích từ mái hiên, tạo nên những âm thanh trầm bổng. Chúng tôi thích thú với những giọt mưa lấp lánh trong ánh sáng nhạt dần của buổi chiều, cứ như thể mỗi giọt mưa là một chiếc chuông nhỏ ngân vang. Hà Lan khi ấy trông như một nàng tiên, mái tóc xõa dài ướt sũng, gương mặt rạng rỡ và đôi mắt lấp lánh một cách khó tả. Chính đôi mắt ấy đã khiến tôi lưu luyến mãi không thôi, một đôi mắt khiến cho cả thế giới của tôi thu nhỏ lại chỉ còn hai người. Mắt biếc ấy là cả tuổi thơ tôi, là niềm vui, là nỗi buồn, là tất cả những gì đẹp đẽ nhất mà tôi có.\n  Hà Lan giống như một cơn gió mùa thu, đến rồi đi, để lại trong tôi những cảm xúc mà tôi không bao giờ có thể quên. Có những ngày tôi đã cố gắng quên đi hình ảnh đôi mắt biếc ấy, nhưng càng cố quên thì ký ức càng trở nên rõ nét hơn. Mỗi khi tôi đi qua con đường làng, nhìn thấy cây bàng già bên lối cũ, tôi lại nhớ về những ngày xưa khi chúng tôi cùng nhau đi học, cười nói vô tư. Thời gian trôi qua, cây bàng vẫn ở đó, tán lá vẫn xanh rợp bóng, nhưng Hà Lan giờ đây đã trở thành một phần ký ức, xa cách như những đám mây trắng trôi qua bầu trời."
+            android:textSize="18sp"
+            android:lineSpacingExtra="6dp"
+            android:justificationMode="inter_word"
+            android:textColor="@android:color/black" />
+    </ScrollView>
+
+</LinearLayout>
