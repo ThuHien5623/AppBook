@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#edf6f9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="6dp"
+        android:background="#006d77">
+        <EditText
+            android:drawableStart="@drawable/glass"
+            android:id="@+id/search_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Tìm kiếm"
+            android:textSize="15sp"
+            android:layout_marginLeft="3dp"
+            android:padding="1dp"
+            android:background="@color/white"
+            android:layout_marginTop="2dp"
+            />
+        <ImageView
+            android:id="@+id/user_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <Button
+
+                android:layout_width="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_height="48dp"
+                android:textSize="12sp"
+                android:text="TIỂU THUYẾT" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_height="48dp"
+                android:textSize="12sp"
+                android:text="VĂN HỌC" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_height="48dp"
+                android:textSize="12sp"
+                android:text="TRUYỆN DÂN GIAN" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_height="48dp"
+                android:textSize="12sp"
+                android:text="GIÁO DỤC" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_height="48dp"
+                android:textSize="12sp"
+                android:text="TRUYỆN NGẮN" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="167dp"
+        android:background="#edf6f9"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <!-- Book Description -->
+        <ImageView
+            android:id="@+id/book_image"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/book1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/book_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="10dp"
+                android:text="Tên: Mắt biếc"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/book_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Tác giả: Nguyễn Nhật Ánh"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/book_genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Thể loại: Tiểu thuyết"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+        <TextView
+            android:id="@+id/book_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MÔ TẢ"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/book_description_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="3dp"
+            android:text="'Mắt biếc' là một tiểu thuyết lãng mạn nổi tiếng của nhà văn Nguyễn Nhật Ánh. Câu chuyện xoay quanh tình yêu đơn phương của Ngạn, một chàng trai quê, dành cho Hà Lan, cô bạn có đôi mắt biếc cuốn hút từ thuở nhỏ. Tuy nhiên, Hà Lan lại yêu một người khác và rời xa làng quê, để lại Ngạn với nỗi nhớ và tình cảm không bao giờ được đáp lại. 'Mắt biếc' không chỉ là câu chuyện về tình yêu mà còn là nỗi tiếc nuối của những ký ức tuổi thơ, sự thay đổi của con người qua thời gian."
+            android:textSize="15sp"
+            android:justificationMode="inter_word"/>
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <!-- Sách 1 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+
+                    android:id="@+id/book_image1"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/book3" />
+
+                <TextView
+                    android:id="@+id/book_title1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ông nội phiêu lư..  "
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/book_author1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Jenny Pearson"
+                    android:textColor="#666666"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Sách 4 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/book_image2"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/book2" />
+
+                <TextView
+                    android:id="@+id/book_title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bạn thành phố"
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/book_author2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nguyễn Thị Thanh..."
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <!-- Sách 3 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/book_image3"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/book4" />
+
+                <TextView
+                    android:id="@+id/book_titl3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nơi khu rừng chạm.."
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/book_author3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Glendy Vanderah"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:gravity="center" />
+            </LinearLayout>
+            <!-- Sách 4 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/book_image4"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/book2" />
+
+                <TextView
+                    android:id="@+id/book_title4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bạn thành phố"
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/book_author4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nguyễn Thị Thanh..."
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:gravity="center" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_back" />
+
+        <LinearLayout
+            android:layout_width="270dp"
+            android:layout_height="match_parent"
+            android:background="#006d77"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="30dp"
+            >
+
+            <ImageView
+                android:id="@+id/book_icon"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/ic_docsach" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="ĐỌC SÁCH"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/heart"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/tim" />
+    </LinearLayout>
+
+
+</LinearLayout>
