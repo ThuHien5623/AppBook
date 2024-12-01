@@ -92,8 +92,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String theloai_truyenngan = "INSERT INTO tbTheLoai VAlUES (null,'Truyện ngắn')";
 
         // Thêm tên thể loại
-        String sach_matbiec = "INSERT INTO tbTruyen VAlUES (null,'Mắt biếc','Nguyễn Nhật Ánh','Mắt biếc là một tiểu thuyết lãng mạn nổi tiếng của nhà văn Nguyễn Nhật Ánh. Câu chuyện xoay quanh tình yêu đơn phương của Ngạn, một chàng trai quê, dành cho Hà Lan, cô bạn có đôi mắt biếc cuốn hút từ thuở nhỏ. Tuy nhiên, Hà Lan lại yêu một người khác và rời xa làng quê, để lại Ngạn với nỗi nhớ và tình cảm không bao giờ được đáp lại. Mắt biếc không chỉ là câu chuyện về tình yêu mà còn là nỗi tiếc nuối của những ký ức tuổi thơ, sự thay đổi của con người qua thời gian.','matbiec',1,'2024-11-20','2024-11-20')";
-        String sach_nnn = "INSERT INTO tbTruyen VAlUES (null,'Mắt biếc','Nguyễn Nhật Ánh','Mắt biếc là một tiểu thuyết lãng mạn nổi tiếng của nhà văn Nguyễn Nhật Ánh. Câu chuyện xoay quanh tình yêu đơn phương của Ngạn, một chàng trai quê, dành cho Hà Lan, cô bạn có đôi mắt biếc cuốn hút từ thuở nhỏ. Tuy nhiên, Hà Lan lại yêu một người khác và rời xa làng quê, để lại Ngạn với nỗi nhớ và tình cảm không bao giờ được đáp lại. Mắt biếc không chỉ là câu chuyện về tình yêu mà còn là nỗi tiếc nuối của những ký ức tuổi thơ, sự thay đổi của con người qua thời gian.','matbiec',1,'2024-11-20','2024-11-20')";
+        String sach_matbiec = "INSERT INTO tbTruyen VAlUES (null,'Mắt biếc','Nguyễn Nhật Ánh','Mắt biếc là một tiểu thuyết lãng mạn nổi tiếng của nhà văn Nguyễn Nhật Ánh. Câu chuyện xoay quanh tình yêu đơn phương của Ngạn, một chàng trai quê, dành cho Hà Lan, cô bạn có đôi mắt biếc cuốn hút từ thuở nhỏ. Tuy nhiên, Hà Lan lại yêu một người khác và rời xa làng quê, để lại Ngạn với nỗi nhớ và tình cảm không bao giờ được đáp lại. Mắt biếc không chỉ là câu chuyện về tình yêu mà còn là nỗi tiếc nuối của những ký ức tuổi thơ, sự thay đổi của con người qua thời gian.','matbiec',1,null,null,'2024-11-20','2024-11-20')";
+        String sach_nnn = "INSERT INTO tbTruyen VAlUES (null,'Mắt biếc','Nguyễn Nhật Ánh','Mắt biếc là một tiểu thuyết lãng mạn nổi tiếng của nhà văn Nguyễn Nhật Ánh. Câu chuyện xoay quanh tình yêu đơn phương của Ngạn, một chàng trai quê, dành cho Hà Lan, cô bạn có đôi mắt biếc cuốn hút từ thuở nhỏ. Tuy nhiên, Hà Lan lại yêu một người khác và rời xa làng quê, để lại Ngạn với nỗi nhớ và tình cảm không bao giờ được đáp lại. Mắt biếc không chỉ là câu chuyện về tình yêu mà còn là nỗi tiếc nuối của những ký ức tuổi thơ, sự thay đổi của con người qua thời gian.','matbiec',1,null,null,'2024-11-20','2024-11-20')";
+        String sach_mmm = "INSERT INTO tbTruyen VAlUES (null,'Mắt biếc','Nguyễn Nhật Ánh','Mắt biếc là một tiểu thuyết lãng mạn nổi tiếng của nhà văn Nguyễn Nhật Ánh. Câu chuyện xoay quanh tình yêu đơn phương của Ngạn, một chàng trai quê, dành cho Hà Lan, cô bạn có đôi mắt biếc cuốn hút từ thuở nhỏ. Tuy nhiên, Hà Lan lại yêu một người khác và rời xa làng quê, để lại Ngạn với nỗi nhớ và tình cảm không bao giờ được đáp lại. Mắt biếc không chỉ là câu chuyện về tình yêu mà còn là nỗi tiếc nuối của những ký ức tuổi thơ, sự thay đổi của con người qua thời gian.','matbiec',1,null,null,'2024-11-20','2024-11-20')";
 
 
 
@@ -113,6 +114,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         // Thêm tên sách vào Database
         db.execSQL(sach_matbiec);
         db.execSQL(sach_nnn);
+        db.execSQL(sach_mmm);
 
     }
 

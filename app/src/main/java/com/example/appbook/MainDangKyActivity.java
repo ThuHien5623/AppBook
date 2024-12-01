@@ -34,8 +34,8 @@ public class MainDangKyActivity extends Activity {
             @Override
             public void onClick(View view) {
                 String taikhoan = etUsername.getText().toString();
-                String sdt = etPhone.getText().toString();
                 String matkhau = etPassword.getText().toString();
+                String sdt = etPhone.getText().toString();
                 String nhaplaimatkhau = etPasswordAgain.getText().toString();
 
                 TaiKhoan taiKhoan1 = CreateTaiKhoan();
@@ -60,8 +60,8 @@ public class MainDangKyActivity extends Activity {
 
                         // Clear input fields
                         etUsername.setText("");
-                        etPhone.setText("");
                         etPassword.setText("");
+                        etPhone.setText("");
                         etPasswordAgain.setText("");
                     }
                 }
@@ -82,10 +82,9 @@ public class MainDangKyActivity extends Activity {
         String taikhoan = etUsername.getText().toString();
         String sdt = etPhone.getText().toString();
         String matkhau = etPassword.getText().toString();
-        String nhaplaimatkhau = etPasswordAgain.getText().toString();
         int phanquyen = 1;
 
-        TaiKhoan tk = new TaiKhoan(taikhoan, sdt, matkhau, nhaplaimatkhau, phanquyen);
+        TaiKhoan tk = new TaiKhoan(taikhoan, matkhau, sdt, phanquyen);
         return tk;
     }
 
