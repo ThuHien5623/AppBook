@@ -24,6 +24,8 @@
         <activity android:name=".MainDangKyActivity"/>
         <activity android:name=".MainTrangChuActivity"/>
         <activity android:name=".MainBookListActivity"/>
+        <activity android:name=".MainDangDocActivity"/>
+        <activity android:name=".MainYeuThichActivity"/>
         <activity android:name=".MainActivity"/>
 
     </application>

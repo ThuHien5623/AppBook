@@ -7,10 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
-import android.widget.ListView;
-import android.database.Cursor;
 
 import androidx.annotation.Nullable;
 
@@ -101,7 +98,7 @@ import androidx.annotation.Nullable;
         btn_reading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainBookListActivity.this, MainDangDoc.class);
+                Intent intent = new Intent(MainBookListActivity.this, MainDangDocActivity.class);
                 startActivity(intent);
             }
         });
@@ -110,7 +107,7 @@ import androidx.annotation.Nullable;
         btn_favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainBookListActivity.this, MainYeuThich.class);
+                Intent intent = new Intent(MainBookListActivity.this, MainYeuThichActivity.class);
                 startActivity(intent);
             }
         });

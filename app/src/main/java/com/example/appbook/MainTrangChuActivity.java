@@ -105,7 +105,7 @@ public class MainTrangChuActivity extends Activity {
         btn_reading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainTrangChuActivity.this, MainDangDoc.class);
+                Intent intent = new Intent(MainTrangChuActivity.this, MainDangDocActivity.class);
                 startActivity(intent);
             }
         });
@@ -114,7 +114,7 @@ public class MainTrangChuActivity extends Activity {
         btn_favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainTrangChuActivity.this, MainYeuThich.class);
+                Intent intent = new Intent(MainTrangChuActivity.this, MainYeuThichActivity.class);
                 startActivity(intent);
             }
         });
