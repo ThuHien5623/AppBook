@@ -14,12 +14,12 @@ import android.database.Cursor;
 
 import androidx.annotation.Nullable;
 
-public class MainBookListActivity extends Activity {
-    Button btn_reading, btn_favorite;
+    public class MainBookListActivity extends Activity {
+        Button btn_reading, btn_favorite;
 
-    MyDatabaseHelper databasedoctruyen;
-    List<Book> books;
-    BookAdapter bookAdapter;
+        MyDatabaseHelper databasedoctruyen;
+        List<Book> books;
+        BookAdapter bookAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,52 +33,53 @@ public class MainBookListActivity extends Activity {
         TextView textView = findViewById(R.id.tvTenTheLoai);
         textView.setText(tentheloai);
 
-        //Đổ danh sách truyện
-        //----------------
-        // Khởi tạo ListView
-        ListView listView = findViewById(R.id.listViewBooks);
-
-        // Lấy dữ liệu từ SQLite
-        databasedoctruyen = new MyDatabaseHelper(this);
-        books = new ArrayList<>();
-        Cursor cursor = databasedoctruyen.getBooksByCategory(tentheloai);
-
-        if (cursor != null && cursor.moveToFirst()) {
-            do {
-                // Lấy chỉ mục của các cột từ cursor
-                int columnIndexTitle = cursor.getColumnIndex("truyen_tentruyen");
-                int columnIndexAuthor = cursor.getColumnIndex("truyen_tentacgia");
-                int columnIndexCover = cursor.getColumnIndex("truyen_image");
-
-                // Kiểm tra nếu cột tồn tại và lấy giá trị
-                String tensach = "";
-                String tacgia = "";
-                String image = "";
-
-                // Nếu cột tồn tại và không phải là -1 (tức là có cột này)
-                if (columnIndexTitle != -1) {
-                    tensach = cursor.getString(columnIndexTitle);
-                }
-
-                if (columnIndexAuthor != -1) {
-                    tacgia = cursor.getString(columnIndexAuthor);
-                }
-
-                if (columnIndexCover != -1) {
-                    image = cursor.getString(columnIndexCover);
-                }
-
-                books.add(new Book(tensach, tacgia, image));
-            } while (cursor.moveToNext());
-        }
-
-        if (cursor != null) {
-            cursor.close();
-        }
-
-        // Gắn Adapter
-        bookAdapter = new BookAdapter(this, books);
-        listView.setAdapter(bookAdapter);
+//        //Đổ danh sách truyện
+//        //----------------
+//        // Khởi tạo ListView
+//        ListView listView = findViewById(R.id.listViewBooks);
+//
+//        // Lấy dữ liệu từ SQLite
+//        databasedoctruyen = new MyDatabaseHelper(this);
+//        books = new ArrayList<>();
+//
+//        Cursor cursor = databasedoctruyen.getBooksByCategory(tentheloai);
+//
+//        if (cursor != null && cursor.moveToFirst()) {
+//            do {
+//                // Lấy chỉ mục của các cột từ cursor
+//                int columnIndexTitle = cursor.getColumnIndex("truyen_tentruyen");
+//                int columnIndexAuthor = cursor.getColumnIndex("truyen_tentacgia");
+//                int columnIndexCover = cursor.getColumnIndex("truyen_image");
+//
+//                // Kiểm tra nếu cột tồn tại và lấy giá trị
+//                String tensach = "";
+//                String tacgia = "";
+//                String image = "";
+//
+//                // Nếu cột tồn tại và không phải là -1 (tức là có cột này)
+//                if (columnIndexTitle != -1) {
+//                    tensach = cursor.getString(columnIndexTitle);
+//                }
+//
+//                if (columnIndexAuthor != -1) {
+//                    tacgia = cursor.getString(columnIndexAuthor);
+//                }
+//
+//                if (columnIndexCover != -1) {
+//                    image = cursor.getString(columnIndexCover);
+//                }
+//
+//                books.add(new Book(tensach, tacgia, image));
+//            } while (cursor.moveToNext());
+//        }
+//
+//        if (cursor != null) {
+//            cursor.close();
+//        }
+//
+//        // Gắn Adapter
+//        bookAdapter = new BookAdapter(this, books);
+//        listView.setAdapter(bookAdapter);
 
 //        // Xử lý sự kiện click
 //        listView.setOnItemClickListener((parent, view, position, id) -> {

@@ -27,13 +27,6 @@
             android:padding="6dp"
             android:textSize="17sp" />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/user_icon"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center_vertical"-->
-<!--            android:layout_marginLeft="5dp"-->
-<!--            android:src="@drawable/user" />-->
     </LinearLayout>
 
     <!-- Tiêu đề Thể loại -->
@@ -49,14 +42,14 @@
         android:textStyle="bold" />
 
     <!-- ListView sách -->
-    <ListView
-        android:id="@+id/listViewBooks"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_above="@id/button_bar"
-        android:layout_below="@id/tvTenTheLoai"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="1dp" />
+<!--    <ListView-->
+<!--        android:id="@+id/listViewBooks"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_above="@id/button_bar"-->
+<!--        android:layout_below="@id/tvTenTheLoai"-->
+<!--        android:divider="@android:color/darker_gray"-->
+<!--        android:dividerHeight="1dp" />-->
 
     <!-- Thanh nút -->
     <LinearLayout
