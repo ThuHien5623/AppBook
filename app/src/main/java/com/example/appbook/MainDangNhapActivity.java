@@ -65,6 +65,7 @@ public class MainDangNhapActivity extends Activity {
                             String sodienthoai = cursor.getString(3);
                             int phanquyen = cursor.getInt(4);
                             String tenTK = cursor.getString(1);
+                            String MK = cursor.getString(2);
 
                             //Chuyển qua màn hình MainTrangChu
                             Intent intent = new Intent(MainDangNhapActivity.this, MainTrangChuActivity.class);
@@ -74,12 +75,12 @@ public class MainDangNhapActivity extends Activity {
                             intent.putExtra("sodienthoai", sodienthoai);
                             intent.putExtra("phanquyen", phanquyen);
                             intent.putExtra("tenTK", tenTK);
+                            intent.putExtra("MK", MK);
 
                             startActivity(intent);
                             finish(); // Đóng Activity hiện tại
                             break; // Thoát vòng lặp
                         } else {
-                            Log.e("Thông báo : ", "Tài khoản không hợp lệ!!!");
                             Toast.makeText(MainDangNhapActivity.this, "Tài khoản không hợp lệ!!!", Toast.LENGTH_LONG).show();
                         }
                     }
