@@ -1,272 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#edf6f9">
+
+    <!-- Thanh tìm kiếm -->
     <LinearLayout
+        android:id="@+id/search_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#006d77"
         android:orientation="horizontal"
-        android:padding="4dp"
-        android:background="#006d77">
+        android:padding="4dp">
+
         <EditText
-            android:drawableStart="@drawable/glass"
             android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_weight="1"
-            android:hint="Tìm kiếm"
-            android:textSize="17sp"
             android:layout_marginLeft="3dp"
-            android:padding="6dp"
-            android:background="@drawable/radious_ha"
             android:layout_marginTop="2dp"
-            />
-        <ImageView
-            android:id="@+id/user_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/user"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dp"/>
+            android:layout_weight="1"
+            android:background="@drawable/radious_ha"
+            android:drawableStart="@drawable/glass"
+            android:hint="Tìm kiếm sách"
+            android:padding="6dp"
+            android:textSize="17sp" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/user_icon"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:src="@drawable/user" />-->
     </LinearLayout>
-    <HorizontalScrollView
+
+    <!-- Tiêu đề Thể loại -->
+    <TextView
+        android:id="@+id/tvTenTheLoai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_layout"
+        android:layout_margin="10dp"
+        android:text="Văn học"
+        android:textColor="#006d77"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <!-- ListView sách -->
+    <ListView
+        android:id="@+id/listViewBooks"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="1dp"
-        android:scrollbars="none">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:orientation="horizontal">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_height="48dp"
-                android:textSize="14sp"
-                android:text="tiểu thuyết" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_height="48dp"
-                android:textSize="14sp"
-                android:text="văn học" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_height="48dp"
-                android:textSize="14sp"
-                android:text="truyện dân gian" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_height="48dp"
-                android:textSize="14sp"
-                android:text="giáo dục" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_height="48dp"
-                android:textSize="14sp"
-                android:text="truyện ngắn" />
+        android:layout_height="0dp"
+        android:layout_above="@id/button_bar"
+        android:layout_below="@id/tvTenTheLoai"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp" />
 
-        </LinearLayout>
-    </HorizontalScrollView>
+    <!-- Thanh nút -->
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp">
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp">
-
-            <ImageView
-                android:id="@+id/img_book_cover1"
-                android:layout_width="150dp"
-                android:layout_height="220dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:src="@drawable/book1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp">
-
-            <TextView
-                android:id="@+id/txt_book_title1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Bạn thành phố"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"/>
-            <TextView
-                android:id="@+id/txt_book_author1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="N. Thị Thanh Bình"
-                android:textSize="20sp"
-                android:gravity="center"/>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp">
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="5dp"
-            android:layout_weight="1">
-            <ImageView
-                android:id="@+id/img_book_cover2"
-                android:layout_width="150dp"
-                android:layout_height="220dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:src="@drawable/book2" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="5dp">
-
-            <TextView
-                android:id="@+id/txt_book_title2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Bạn thành phố"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"/>
-            <TextView
-                android:id="@+id/txt_book_author2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="N. Thị Thanh Bình"
-                android:textSize="20sp"
-                android:gravity="center"/>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp">
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="5dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/img_book_cover3"
-                android:layout_width="150dp"
-                android:layout_height="220dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:src="@drawable/book3" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="5dp">
-
-            <TextView
-                android:id="@+id/txt_book_title3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Bạn thành phố"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"/>
-            <TextView
-                android:id="@+id/txt_book_author3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="N. Thị Thanh Bình"
-                android:textSize="20sp"
-                android:gravity="center"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
+        android:id="@+id/button_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="63dp"
+        android:layout_alignParentBottom="true"
         android:background="#FFFFFF"
+        android:orientation="vertical"
         android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
+
             <Button
                 android:id="@+id/btn_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TRANG CHỦ"
                 android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="#00A79D"
+                android:text="TRANG CHỦ"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:background="#00A79D"
-                android:textSize="18sp"
-                android:layout_weight="1"/>
+                android:textSize="18sp" />
+
             <Button
                 android:id="@+id/btn_reading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ĐANG ĐỌC"
                 android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="#65AFAB"
+                android:text="ĐANG ĐỌC"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:background="#65AFAB"
-                android:textSize="18sp"
-                android:layout_weight="1"/>
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/btn_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#65AFAB"
                 android:text="YÊU THÍCH"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:background="#65AFAB"
-                android:textSize="18sp"
-                android:layout_weight="1"/>
+                android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>
 
-
-</LinearLayout>
+</RelativeLayout>

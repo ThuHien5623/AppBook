@@ -8,12 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-public class MainDangNhap extends Activity {
+public class MainDangNhapActivity extends Activity {
     EditText etUsername, etPassword;
     Button btnLogin, btnCreateAccount;
 
@@ -35,11 +34,12 @@ public class MainDangNhap extends Activity {
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainDangNhap.this, MainDangKy.class);
+                Intent intent = new Intent(MainDangNhapActivity.this, MainDangKyActivity.class);
                 startActivity(intent);
             }
         });
 
+        //Tạo sự kiện click button dang nhap
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +52,7 @@ public class MainDangNhap extends Activity {
 
                 if (tentaikhoan.equals("") || matkhau.equals("")) {
                     Log.e("Thông báo : ", "Vui lòng nhập đầy đủ thông tin!");
-                    Toast.makeText(MainDangNhap.this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainDangNhapActivity.this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_LONG).show();
                 } else {
                     //Thực hiện vòng lặp để lấy dữ liệu từ cursor với moveToNext() di chuyển tiếp
                     while (cursor.moveToNext()) {
@@ -66,27 +66,28 @@ public class MainDangNhap extends Activity {
                             int phanquyen = cursor.getInt(4);
                             String tenTK = cursor.getString(1);
 
-                            //Chuyển quan màn hình MainActivity
-                            Intent intent = new Intent(MainDangNhap.this, MainActivity.class);
+                            //Chuyển qua màn hình MainTrangChu
+                            Intent intent = new Intent(MainDangNhapActivity.this, MainTrangChuActivity.class);
 
-                            //Gửi dữ liệu qua Activity là MainActivity
+                            //Gửi dữ liệu qua Activity là MainTrangChu
                             intent.putExtra("idtaikhoan", idtaikhoan);
                             intent.putExtra("sodienthoai", sodienthoai);
                             intent.putExtra("phanquyen", phanquyen);
                             intent.putExtra("tenTK", tenTK);
 
                             startActivity(intent);
+                            finish(); // Đóng Activity hiện tại
+                            break; // Thoát vòng lặp
                         } else {
                             Log.e("Thông báo : ", "Tài khoản không hợp lệ!!!");
-                            Toast.makeText(MainDangNhap.this, "Tài khoản không hợp lệ!!!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainDangNhapActivity.this, "Tài khoản không hợp lệ!!!", Toast.LENGTH_LONG).show();
                         }
                     }
                 }
 
                 //Thực hiện trả cursor về đâu
                 cursor.moveToFirst();
-                //đóng lại khi không dùng
-//                cursor.close();
+
             }
         });
     }

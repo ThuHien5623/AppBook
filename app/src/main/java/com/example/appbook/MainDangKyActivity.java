@@ -9,14 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.example.appbook.model.TaiKhoan;
 
-public class MainDangKy extends Activity {
+public class MainDangKyActivity extends Activity {
     EditText etUsername, etPhone, etPassword, etPasswordAgain;
     Button btnCreateAccount;
     ImageView backButton;
@@ -44,20 +43,20 @@ public class MainDangKy extends Activity {
 
                 if (taikhoan.equals("") || sdt.equals("") || matkhau.equals("") || nhaplaimatkhau.equals("")){
                     Log.e("Thông báo : ", "Vui lòng nhập đầy đủ thông tin!");
-                    Toast.makeText(MainDangKy.this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainDangKyActivity.this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_LONG).show();
                 } else if (isUsernameTaken(taikhoan)) {
                     Log.e("Thông báo : ", "Tài khoản đã tồn tại!");
-                    Toast.makeText(MainDangKy.this, "Tài khoản đã tồn tại!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainDangKyActivity.this, "Tài khoản đã tồn tại!", Toast.LENGTH_LONG).show();
                 }
                 //Nếu đầy đủ thông tin thì add vào tài khoản database
                 else {
                     if (!matkhau.equals(nhaplaimatkhau)){
                         Log.e("Thông báo : ", "Mật khẩu không khớp!");
-                        Toast.makeText(MainDangKy.this, "Mật khẩu không khớp!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainDangKyActivity.this, "Mật khẩu không khớp!", Toast.LENGTH_LONG).show();
                     }
                     else {
                         databasedoctruyen.AddTaiKhoan(taiKhoan1);
-                        Toast.makeText(MainDangKy.this, "Đăng ký thành công", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainDangKyActivity.this, "Đăng ký thành công", Toast.LENGTH_LONG).show();
 
                         // Clear input fields
                         etUsername.setText("");
@@ -72,7 +71,7 @@ public class MainDangKy extends Activity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainDangKy.this, MainDangNhap.class);
+                Intent intent = new Intent(MainDangKyActivity.this, MainDangNhapActivity.class);
                 startActivity(intent);
             }
         });

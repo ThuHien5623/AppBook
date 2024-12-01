@@ -2,14 +2,7 @@
 <project version="4">
   <component name="deploymentTargetSelector">
     <selectionStates>
-<<<<<<< HEAD
-      <SelectionState runConfigName="MainDangNhap">
-=======
-      <SelectionState runConfigName="MainTrangChu">
->>>>>>> c711577234fb4567415f327fe1f6542a71053bbf
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="MainDangKy">
+      <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

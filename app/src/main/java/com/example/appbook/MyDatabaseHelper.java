@@ -37,15 +37,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String TRUYEN_NGAYDANG = "truyen_ngaydang";
     public static final String TRUYEN_NGAYCAPNHATCUOI = "truyen_ngaycapnhatcuoi";
 
-    //Bảng chương
-    public static final String TABLE_CHUONG = "tbChuong";
-    public static final String CHUONG_ID = "chuong_id";
-    public static final String CHUONG_TRUYEN_ID = "truyen_id";
-    public static final String CHUONG_TEN = "chuong_ten";
-    public static final String CHUONG_NOIDUNG = "chuong_noidung";
-    public static final String CHUONG_STT = "chuong_stt";
-    public static final String CHUONG_NGAYDANG = "chuong_ngaydang";
-
     //Bảng thể loại truyện
     public static final String TABLE_THELOAI = "tbTheLoai";
     public static final String THELOAI_ID = "theloai_id";
@@ -83,10 +74,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 + TRUYEN_IMAGE + " TEXT, " + TRUYEN_THELOAI_ID + " INTEGER, " + TRUYEN_TRANGTHAI + " TEXT, " + TRUYEN_LUOTXEM + " INTEGER, "
                 + TRUYEN_NGAYDANG + " DATETIME, " + TRUYEN_NGAYCAPNHATCUOI + " DATETIME )";
 
-        String tbChuong = "CREATE TABLE " + TABLE_CHUONG + " ( " + CHUONG_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + CHUONG_TRUYEN_ID + " INTEGER, " + CHUONG_TEN + " TEXT, " + CHUONG_NOIDUNG + " TEXT, "
-                + CHUONG_STT + " INTEGER, " + CHUONG_NGAYDANG + " DATETIME )";
-
         String tbTheLoai = "CREATE TABLE " + TABLE_THELOAI + " ( " + THELOAI_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + THELOAI_TEN + " TEXT )";
 
@@ -96,12 +83,37 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String tbDangDoc = "CREATE TABLE " + TABLE_ĐANGDOC + " ( " + DANGDOC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DANGDOC_TAIKHOAN_ID + " INTEGER, " + DANGDOC_TRUYEN_ID + " INTEGER, " + DANGDOC_NGAYTHEM + " DATETIME )";
 
+
+        // Thêm tên thể loại
+        String theloai_tieuthuyet = "INSERT INTO tbTheLoai VAlUES (null,'Tiểu thuyết')";
+        String theloai_vanhoc = "INSERT INTO tbTheLoai VAlUES (null,'Văn học')";
+        String theloai_truyendangian = "INSERT INTO tbTheLoai VAlUES (null,'Truyện dân gian')";
+        String theloai_giaoduc = "INSERT INTO tbTheLoai VAlUES (null,'Giáo dục')";
+        String theloai_truyenngan = "INSERT INTO tbTheLoai VAlUES (null,'Truyện ngắn')";
+
+        // Thêm tên thể loại
+        String sach_matbiec = "INSERT INTO tbTruyen VAlUES (null,'Mắt biếc','Nguyễn Nhật Ánh','Mắt biếc là một tiểu thuyết lãng mạn nổi tiếng của nhà văn Nguyễn Nhật Ánh. Câu chuyện xoay quanh tình yêu đơn phương của Ngạn, một chàng trai quê, dành cho Hà Lan, cô bạn có đôi mắt biếc cuốn hút từ thuở nhỏ. Tuy nhiên, Hà Lan lại yêu một người khác và rời xa làng quê, để lại Ngạn với nỗi nhớ và tình cảm không bao giờ được đáp lại. Mắt biếc không chỉ là câu chuyện về tình yêu mà còn là nỗi tiếc nuối của những ký ức tuổi thơ, sự thay đổi của con người qua thời gian.','matbiec',1,'2024-11-20','2024-11-20')";
+        String sach_nnn = "INSERT INTO tbTruyen VAlUES (null,'Mắt biếc','Nguyễn Nhật Ánh','Mắt biếc là một tiểu thuyết lãng mạn nổi tiếng của nhà văn Nguyễn Nhật Ánh. Câu chuyện xoay quanh tình yêu đơn phương của Ngạn, một chàng trai quê, dành cho Hà Lan, cô bạn có đôi mắt biếc cuốn hút từ thuở nhỏ. Tuy nhiên, Hà Lan lại yêu một người khác và rời xa làng quê, để lại Ngạn với nỗi nhớ và tình cảm không bao giờ được đáp lại. Mắt biếc không chỉ là câu chuyện về tình yêu mà còn là nỗi tiếc nuối của những ký ức tuổi thơ, sự thay đổi của con người qua thời gian.','matbiec',1,'2024-11-20','2024-11-20')";
+
+
+
         db.execSQL(tbTaiKhoan);
         db.execSQL(tbTruyen);
-        db.execSQL(tbChuong);
         db.execSQL(tbTheLoai);
         db.execSQL(tbYeuThich);
         db.execSQL(tbDangDoc);
+
+        // Thêm tên thể loại vào Database
+        db.execSQL(theloai_tieuthuyet);
+        db.execSQL(theloai_vanhoc);
+        db.execSQL(theloai_truyendangian);
+        db.execSQL(theloai_giaoduc);
+        db.execSQL(theloai_truyenngan);
+
+        // Thêm tên sách vào Database
+        db.execSQL(sach_matbiec);
+        db.execSQL(sach_nnn);
+
     }
 
     @Override
@@ -142,4 +154,31 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM tbTaiKhoan WHERE taikhoan_tendangnhap = ?", new String[]{username});
     }
+
+    // Phương thức lấy tất cả thể loại truyện
+    public Cursor getAllTheLoai() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_THELOAI, null);
+    }
+
+    // Phương thức Lấy truyện theo tên thể loại (dùng JOIN với tbTheLoai)
+    public Cursor getBooksByCategory(String categoryName) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery(
+                "SELECT t.* FROM " + TABLE_TRUYEN + " t " +
+                        "JOIN " + TABLE_THELOAI + " tl ON t." + TRUYEN_THELOAI_ID + " = tl." + THELOAI_ID + " " +
+                        "WHERE tl." + THELOAI_TEN + " = ?",
+                new String[]{categoryName}
+        );
+    }
+
+//    // Phương thức Lấy truyện theo tên ID thể loại
+//    public Cursor getBooksByCategory(int categoryId) {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        return db.rawQuery(
+//                "SELECT * FROM " + TABLE_TRUYEN + " WHERE " + TRUYEN_THELOAI_ID + " = ?",
+//                new String[]{String.valueOf(categoryId)}
+//        );
+//    }
+
 }

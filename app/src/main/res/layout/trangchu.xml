@@ -10,19 +10,7 @@
         android:orientation="horizontal"
         android:padding="4dp"
         android:background="#006d77">
-        <EditText
-            android:drawableStart="@drawable/glass"
-            android:id="@+id/search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:hint="Tìm kiếm"
-            android:textSize="17sp"
-            android:layout_marginLeft="3dp"
-            android:padding="6dp"
-            android:layout_marginTop="2dp"
-            android:background="@drawable/radious_ha"
-            />
+
         <ImageView
             android:id="@+id/user_icon"
             android:layout_width="wrap_content"
@@ -31,59 +19,36 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dp"/>
     </LinearLayout>
+
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="1dp"
         android:scrollbars="none">
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:orientation="horizontal">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_height="48dp"
-                android:textSize="14sp"
-                android:text="tiểu thuyết" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_height="48dp"
-                android:textSize="14sp"
-                android:text="văn học" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_height="48dp"
-                android:textSize="14sp"
-                android:text="truyện dân gian" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_height="48dp"
-                android:textSize="14sp"
-                android:text="giáo dục" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_height="48dp"
-                android:textSize="14sp"
-                android:text="truyện ngắn" />
+
+            <!-- Các mục sẽ được thêm động tại đây -->
 
         </LinearLayout>
     </HorizontalScrollView>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:orientation="horizontal">
+
         <ImageView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:src="@drawable/banner1"
-        android:scaleType="fitCenter" />
-        </LinearLayout>
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/banner1" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -117,7 +82,7 @@
                     android:id="@+id/img_book_cover1"
                     android:layout_width="wrap_content"
                     android:layout_height="185dp"
-                    android:src="@drawable/book1"
+                    android:src="@drawable/matbiec"
                     android:scaleType="fitCenter"
                     android:layout_gravity="center" />
                 <TextView
@@ -146,13 +111,15 @@
                 android:gravity="center"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp">
+
                 <ImageView
                     android:id="@+id/img_book_cover2"
                     android:layout_width="wrap_content"
                     android:layout_height="185dp"
-                    android:src="@drawable/book2"
+                    android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="center" />
+                    android:src="@drawable/banthanhpho" />
+
                 <TextView
                     android:id="@+id/txt_book_title2"
                     android:layout_width="wrap_content"

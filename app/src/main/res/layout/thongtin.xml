@@ -18,13 +18,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Tìm kiếm"
+            android:hint="Tìm kiếm sách"
             android:textSize="15sp"
-            android:layout_marginLeft="3dp"
-            android:padding="1dp"
+            android:layout_marginLeft="10dp"
+            android:padding="10dp"
             android:background="@color/white"
-            android:layout_marginTop="2dp"
-            />
+            android:minHeight="48dp" />
         <ImageView
             android:id="@+id/user_icon"
             android:layout_width="wrap_content"
@@ -90,7 +89,7 @@
             android:layout_height="150dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/book1" />
+            android:src="@drawable/matbiec" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -205,7 +204,7 @@
                     android:id="@+id/book_image2"
                     android:layout_width="120dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/book2" />
+                    android:src="@drawable/banthanhpho" />
 
                 <TextView
                     android:id="@+id/book_title2"
@@ -270,7 +269,7 @@
                     android:id="@+id/book_image4"
                     android:layout_width="120dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/book2" />
+                    android:src="@drawable/banthanhpho" />
 
                 <TextView
                     android:id="@+id/book_title4"
@@ -300,8 +299,7 @@
         android:layout_height="45dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        >
+        android:layout_marginTop="10dp">
 
         <ImageView
             android:id="@+id/back_button"
@@ -316,8 +314,7 @@
             android:background="#006d77"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingStart="30dp"
-            >
+            android:paddingStart="30dp">
 
             <ImageView
                 android:id="@+id/book_icon"
