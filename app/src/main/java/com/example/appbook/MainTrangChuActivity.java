@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
-import android.database.Cursor; // Để làm việc với con trỏ SQLite
-import android.graphics.Color; // Để đặt màu nền và màu chữ
-import android.widget.LinearLayout; // Để làm việc với LinearLayout
+import android.database.Cursor;
+import android.graphics.Color;
+import android.widget.LinearLayout;
 import android.widget.Button;
-import android.widget.TextView; // Để tạo và thêm TextView
-
+import android.widget.TextView;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -64,10 +64,17 @@ public class MainTrangChuActivity extends Activity {
 
                         // Thêm sự kiện OnClickListener
                         textView.setOnClickListener(v -> {
-                            // Chuyển sang màn hình khác khi click
-                            Intent intent = new Intent(MainTrangChuActivity.this, MainBookListActivity.class);
-                            intent.putExtra("theloai_ten", tentheloai); // Truyền dữ liệu qua Intent
-                            startActivity(intent); // Bắt đầu Activity mới
+//                            // Chuyển sang màn hình khác khi click
+//                            Intent intent = new Intent(MainTrangChuActivity.this, MainBookListActivity.class);
+//                            intent.putExtra("theloai_ten", tentheloai); // Truyền dữ liệu qua Intent
+//                            startActivity(intent); // Bắt đầu Activity mới
+                            if (tentheloai != null) {
+                                Intent intent = new Intent(MainTrangChuActivity.this, MainBookListActivity.class);
+                                intent.putExtra("theloai_ten", tentheloai);  // Truyền tên thể loại
+                                startActivity(intent);  // Bắt đầu Activity mới
+                            } else {
+                                Log.e("MainTrangChu", "Tên thể loại là null");
+                            }
                         });
 
                         // Thêm TextView vào LinearLayout
