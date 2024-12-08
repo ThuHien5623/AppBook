@@ -26,6 +26,7 @@
         <activity android:name=".MainBookListActivity"/>
         <activity android:name=".MainDangDocActivity"/>
         <activity android:name=".MainYeuThichActivity"/>
+        <activity android:name=".MainChiTietBookActivity"/>
         <activity android:name=".MainActivity"/>
 
     </application>

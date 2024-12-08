@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.widget.LinearLayout;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.util.Log;
 
@@ -15,7 +16,7 @@ import androidx.annotation.Nullable;
 
 public class MainTrangChuActivity extends Activity {
     Button btn_reading, btn_favorite;
-
+    ImageView btn_DangXuat;
     MyDatabaseHelper databasedoctruyen;
 
     @Override
@@ -23,11 +24,18 @@ public class MainTrangChuActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trangchu);
 
+        // Nhận dữ liệu từ Intent
+        String xinchao = getIntent().getStringExtra("tenTK");
+        // Hiển thị tên xin chào
+        TextView txtXinChao = findViewById(R.id.txtXinChao);
+        txtXinChao.setText("Xin chào " + xinchao);
+
         // Khởi tạo đối tượng MyDatabaseHelper
         databasedoctruyen = new MyDatabaseHelper(this);
 
         btn_reading = findViewById(R.id.btn_reading);
         btn_favorite = findViewById(R.id.btn_favorite);
+        btn_DangXuat = findViewById(R.id.btnDangXuat);
 
         // THE LOẠI //
         // Tìm LinearLayout từ layout
@@ -122,6 +130,15 @@ public class MainTrangChuActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainTrangChuActivity.this, MainYeuThichActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Tạo sự kiện click button đăng xuất thì tro ve trang dang nhap
+        btn_DangXuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainTrangChuActivity.this, MainDangNhapActivity.class);
                 startActivity(intent);
             }
         });

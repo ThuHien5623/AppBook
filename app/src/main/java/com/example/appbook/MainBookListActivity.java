@@ -1,24 +1,24 @@
 package com.example.appbook;
 
-import android.app.Activity; // Để sử dụng Activity
-import android.content.Intent; // Để chuyển đổi giữa các Activity
-import android.database.Cursor; // Để làm việc với Cursor (SQLite)
-import android.os.Bundle; // Để sử dụng onCreate và các phương thức vòng đời Activity
-import android.view.View; // Để sử dụng sự kiện OnClickListener
-import android.widget.ArrayAdapter; // Để sử dụng ArrayAdapter (nếu cần)
-import android.widget.Button; // Để làm việc với Button
-import android.widget.ListView; // Để làm việc với ListView
-import android.widget.TextView; // Để hiển thị TextView
+import android.app.Activity;
+import android.content.Intent;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable; // Để chú thích các phương thức có thể null
 
-import java.util.ArrayList; // Để tạo danh sách ArrayList
-import java.util.List; // Để làm việc với danh sách List
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.Nullable;
 
 public class MainBookListActivity extends Activity {
-    Button btn_reading, btn_favorite;
+    Button btn_reading, btn_favorite, btn_trangchu;
 
     MyDatabaseHelper databasedoctruyen;
     List<Book> books;
@@ -36,19 +36,17 @@ public class MainBookListActivity extends Activity {
         textView.setText(tentheloai);
         btn_reading = findViewById(R.id.btn_reading);
         btn_favorite = findViewById(R.id.btn_favorite);
-
+        btn_trangchu = findViewById(R.id.btn_home);
 
         //Đổ danh sách truyện
         //----------------
         // Khởi tạo ListView
         ListView listView = findViewById(R.id.listViewBooks);
-//
-//        // Lấy dữ liệu từ SQLite
+        // Lấy dữ liệu từ SQLite
         databasedoctruyen = new MyDatabaseHelper(this);
         books = new ArrayList<>();
-//
         Cursor cursor = databasedoctruyen.getBooksByCategory(tentheloai);
-// cái aspp nào mở lại dùm t
+
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 // Lấy chỉ mục của các cột từ cursor
@@ -65,15 +63,12 @@ public class MainBookListActivity extends Activity {
                 if (columnIndexTitle != -1) {
                     tensach = cursor.getString(columnIndexTitle);
                 }
-
                 if (columnIndexAuthor != -1) {
                     tacgia = cursor.getString(columnIndexAuthor);
                 }
-
                 if (columnIndexCover != -1) {
                     image = cursor.getString(columnIndexCover);
                 }
-
                 books.add(new Book(tensach, tacgia, image));
             } while (cursor.moveToNext());
         }
@@ -81,11 +76,10 @@ public class MainBookListActivity extends Activity {
         if (cursor != null) {
             cursor.close();
         }
-//
-//        // Gắn Adapter
+        // Gắn Adapter
         bookAdapter = new BookAdapter(this, books);
         listView.setAdapter(bookAdapter);
-//
+
 //        // Xử lý sự kiện click
 ////        listView.setOnItemClickListener((parent, view, position, id) -> {
 ////            Book selectedBook = books.get(position);
@@ -121,7 +115,7 @@ public class MainBookListActivity extends Activity {
         });
 
         //Tạo sự kiện click button trang chủ khi chuyển sang màn hình trang chủ với Intent
-        btn_favorite.setOnClickListener(new View.OnClickListener() {
+        btn_trangchu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainBookListActivity.this, MainTrangChuActivity.class);
