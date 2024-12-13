@@ -5,10 +5,10 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-public class MainYeuThichActivity extends Activity {
+public class MainChiTietBookActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.yeuthich);
+        setContentView(R.layout.thongtin);
     }
 }
