@@ -1,5 +1,6 @@
 package com.example.appbook;
 
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,14 +8,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+
 import androidx.annotation.Nullable;
 
+
 import com.example.appbook.model.TaiKhoan;
+
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
     private Context context;
     public static final String DATABASE_NAME = "BookLibrary.db";
     public static final int DATABASE_VERSION = 1;
+
 
     //Bảng tài khoản
     public static final String TABLE_TAIKHOAN = "tbTaiKhoan";
@@ -23,6 +28,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String TAIKHOAN_MATKHAU = "taikhoan_matkhau";
     public static final String TAIKHOAN_SDT = "taikhoan_sdt";
     public static final String TAIKHOAN_PHANQUYEN = "taikhoan_phanquyen";
+
 
     //Bảng truyện
     public static final String TABLE_TRUYEN = "tbTruyen";
@@ -38,10 +44,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String TRUYEN_NGAYDANG = "truyen_ngaydang";
     public static final String TRUYEN_NGAYCAPNHATCUOI = "truyen_ngaycapnhatcuoi";
 
+
     //Bảng thể loại truyện
     public static final String TABLE_THELOAI = "tbTheLoai";
     public static final String THELOAI_ID = "theloai_id";
     public static final String THELOAI_TEN = "theloai_ten";
+
 
     //Bảng truyện yêu thích
     public static final String TABLE_YEUTHICH = "tbYeuThich";
@@ -50,18 +58,21 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String YEUTHICH_TRUYEN_ID = "truyen_id";
     public static final String YEUTHICH_NGAYTHEM = "yeuthich_ngaythem";
 
+
     //Bảng truyện đang đọc
-    public static final String TABLE_ĐANGDOC = "tbDangDoc";
+    public static final String TABLE_DANGDOC = "tbDangDoc";
     public static final String DANGDOC_ID = "dangdoc_id";
     public static final String DANGDOC_TAIKHOAN_ID = "taikhoan_id";
     public static final String DANGDOC_TRUYEN_ID = "truyen_id";
     public static final String DANGDOC_NGAYTHEM = "dangdoc_ngaythem";
+
 
     // Tạo bảng tại phương thức này
     public MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 //        this.context = context;
     }
+
 
     // Tạo bảng table
     @Override
@@ -70,19 +81,25 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 + TAIKHOAN_TENDANGNHAP + " TEXT, " + TAIKHOAN_MATKHAU + " TEXT, " + TAIKHOAN_SDT + " TEXT, "
                 + TAIKHOAN_PHANQUYEN + " INTEGER )";
 
+
         String tbTruyen = "CREATE TABLE " + TABLE_TRUYEN + " ( " + TRUYEN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TRUYEN_TENTRUYEN + " TEXT, " + TRUYEN_TENTACGIA + " TEXT, " + TRUYEN_MOTA + " TEXT, "
                 + TRUYEN_IMAGE + " TEXT, " + TRUYEN_LINK + " TEXT, " + TRUYEN_THELOAI_ID + " INTEGER, " + TRUYEN_TRANGTHAI + " TEXT, " + TRUYEN_LUOTXEM + " INTEGER, "
                 + TRUYEN_NGAYDANG + " DATETIME, " + TRUYEN_NGAYCAPNHATCUOI + " DATETIME )";
 
+
         String tbTheLoai = "CREATE TABLE " + TABLE_THELOAI + " ( " + THELOAI_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + THELOAI_TEN + " TEXT )";
+
 
         String tbYeuThich = "CREATE TABLE " + TABLE_YEUTHICH + " ( " + YEUTHICH_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + YEUTHICH_TAIKHOAN_ID + " INTEGER, " + YEUTHICH_TRUYEN_ID + " INTEGER, " + YEUTHICH_NGAYTHEM + " DATETIME )";
 
-        String tbDangDoc = "CREATE TABLE " + TABLE_ĐANGDOC + " ( " + DANGDOC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+
+        String tbDangDoc = "CREATE TABLE " + TABLE_DANGDOC + " ( " + DANGDOC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DANGDOC_TAIKHOAN_ID + " INTEGER, " + DANGDOC_TRUYEN_ID + " INTEGER, " + DANGDOC_NGAYTHEM + " DATETIME )";
+
+
 
 
         // Thêm tên thể loại
@@ -92,9 +109,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String theloai_giaoduc = "INSERT INTO tbTheLoai VAlUES (null,'Giáo dục')";
         String theloai_truyenngan = "INSERT INTO tbTheLoai VAlUES (null,'Truyện ngắn')";
 
+
         // Thêm tên thể loại
         String sach_tieuthuyet_matbiec = "INSERT INTO tbTruyen VAlUES (null,'Mắt biếc','Nguyễn Nhật Ánh','Mắt biếc là một tiểu thuyết lãng mạn nổi tiếng của nhà văn Nguyễn Nhật Ánh. Câu chuyện xoay quanh tình yêu đơn phương của Ngạn, một chàng trai quê, dành cho Hà Lan, cô bạn có đôi mắt biếc cuốn hút từ thuở nhỏ. Tuy nhiên, Hà Lan lại yêu một người khác và rời xa làng quê, để lại Ngạn với nỗi nhớ và tình cảm không bao giờ được đáp lại. Mắt biếc không chỉ là câu chuyện về tình yêu mà còn là nỗi tiếc nuối của những ký ức tuổi thơ, sự thay đổi của con người qua thời gian.','matbiec',null,1,null,null,'2024-11-20','2024-11-20')";
-        String sach_tieuthuyet_ongnoiphieuluyki = "INSERT INTO tbTruyen VALUES (null, 'Ông Nội Phiêu Lưu Ký', 'Dương Khuê', '“Ông Nội Phiêu Lưu Ký” là một câu chuyện thú vị và hấp dẫn về những cuộc phiêu lưu kỳ thú của một ông lão và những đứa trẻ trong gia đình. Qua đó, tác phẩm truyền tải những bài học về tình yêu thương, sự kiên trì và lòng dũng cảm.', 'ongnoiphieuluuky', 1, null, null, '2024-11-21', '2024-11-21')";
+        String sach_tieuthuyet_ongnoiphieuluyki = "INSERT INTO tbTruyen VALUES (null, 'Ông Nội Phiêu Lưu Ký', 'Dương Khuê', '“Ông Nội Phiêu Lưu Ký” là một câu chuyện thú vị và hấp dẫn về những cuộc phiêu lưu kỳ thú của một ông lão và những đứa trẻ trong gia đình. Qua đó, tác phẩm truyền tải những bài học về tình yêu thương, sự kiên trì và lòng dũng cảm.', 'ongnoiphieuluuky',null, 1, null, null, '2024-11-21', '2024-11-21')";
         String sach_tieuthuyet_chipheo = "INSERT INTO tbTruyen VALUES (null,'Chí Phèo','Nam Cao','Chí Phèo là một tác phẩm nổi tiếng của Nam Cao, phản ánh cuộc sống của người nông dân nghèo khổ dưới chế độ phong kiến. Câu chuyện xoay quanh bi kịch của Chí Phèo, một người đàn ông bị xã hội xua đuổi, đã đánh mất nhân phẩm và trở thành kẻ hung dữ. Tuy nhiên, trong con người anh vẫn tiềm ẩn những yếu tố của tình yêu và lòng nhân ái, tạo nên một câu chuyện đầy đau đớn về xã hội và số phận con người.','chipheo',null,1,null,null,'2024-11-21','2024-11-21')";
         String sach_tieuthuyet_doithua = "INSERT INTO tbTruyen VALUES (null,'Đời thừa','Nam Cao','Đời thừa là một tiểu thuyết kinh điển của Nam Cao về cuộc sống của những con người nghèo khổ trong xã hội cũ. Qua những nhân vật chính là Hộ và bà vợ, Nam Cao đã khắc họa một cách sâu sắc về số phận và sự chán nản, tuyệt vọng của con người trong một xã hội thiếu công bằng và nhân đạo.','doithua',null,1,null,null,'2024-11-22','2024-11-22')";
         String sach_tieuthuyet_hoangtu = "INSERT INTO tbTruyen VALUES (null,'Hoàng tử bé','Antoine de Saint-Exupéry','Hoàng tử bé là một trong những cuốn tiểu thuyết nổi tiếng nhất trên thế giới. Tác phẩm kể về cuộc hành trình của một hoàng tử đến thăm các hành tinh khác nhau và gặp gỡ những con người kỳ lạ. Qua đó, tác giả khắc họa những bài học sâu sắc về cuộc sống, tình yêu và sự trưởng thành.','hoangtube',null,1,null,null,'2024-11-21','2024-11-21')";
@@ -127,11 +145,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String sach_truyenngan_noikhurungchamtoithienvisao = "INSERT INTO tbTruyen VALUES (null, 'Nơi Khu Rừng Chạm Tới Những Vì Sao', 'Lê Thị Thanh Hương', '“Nơi Khu Rừng Chạm Tới Những Vì Sao” là một câu chuyện kỳ diệu, nơi những phép màu và bí ẩn thiên nhiên kết hợp với những giấc mơ của những đứa trẻ. Trong khu rừng huyền bí, các nhân vật chính – một nhóm trẻ em tò mò – khám phá những điều kỳ diệu xảy ra khi họ tìm cách chạm đến các vì sao. Cuốn sách không chỉ là một cuộc phiêu lưu đầy màu sắc mà còn chứa đựng thông điệp về sự hiếu kỳ, khám phá và niềm tin vào những điều tưởng chừng như không thể.', 'noikhurungchamtoinhungvisao',null, 5, null, null, '2024-11-22', '2024-11-22')";
 
 
+
+
         db.execSQL(tbTaiKhoan);
         db.execSQL(tbTruyen);
         db.execSQL(tbTheLoai);
         db.execSQL(tbYeuThich);
         db.execSQL(tbDangDoc);
+
 
         // Thêm tên thể loại vào Database
         db.execSQL(theloai_tieuthuyet);
@@ -139,6 +160,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(theloai_truyendangian);
         db.execSQL(theloai_giaoduc);
         db.execSQL(theloai_truyenngan);
+
 
         // Thêm tên sách vào Database
         db.execSQL(sach_tieuthuyet_matbiec);
@@ -175,14 +197,18 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(sach_truyenngan_noikhurungchamtoithienvisao);
     }
 
+
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+
     }
+
 
     public SQLiteDatabase open() {
         return this.getWritableDatabase();
     }
+
 
     //Phương thức lấy tất cả tài khoản
     public Cursor getData() {
@@ -191,10 +217,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
+
     //Phương thức add tài khoản vào database
     public void AddTaiKhoan(TaiKhoan taikhoan) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+
 
         // Thực hiện insert thông qua ContentValues
         values.put(TAIKHOAN_TENDANGNHAP, taikhoan.getmTenDangNhap());
@@ -202,23 +230,28 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         values.put(TAIKHOAN_SDT, taikhoan.getmSDT());
         values.put(TAIKHOAN_PHANQUYEN, taikhoan.getmPhanQuyen());
 
+
         db.insert(TABLE_TAIKHOAN, null, values);
+
 
         //Đóng lại khi không dùng
 //        db.close();
         Log.e("ADD TK", "TC");
     }
 
+
     public Cursor getAccountByUsername(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM tbTaiKhoan WHERE taikhoan_tendangnhap = ?", new String[]{username});
     }
+
 
     // Phương thức lấy tất cả thể loại truyện
     public Cursor getAllTheLoai() {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_THELOAI, null);
     }
+
 
     // Phương thức Lấy truyện theo tên thể loại (dùng JOIN với tbTheLoai)
     public Cursor getBooksByCategory(String categoryName) {
@@ -231,6 +264,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
+
 //    // Phương thức Lấy truyện theo tên ID thể loại
 //    public Cursor getBooksByCategory(int categoryId) {
 //        SQLiteDatabase db = this.getReadableDatabase();
@@ -239,5 +273,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 //                new String[]{String.valueOf(categoryId)}
 //        );
 //    }
+
 
 }
