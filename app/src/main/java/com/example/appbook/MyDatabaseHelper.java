@@ -81,28 +81,19 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 + TAIKHOAN_TENDANGNHAP + " TEXT, " + TAIKHOAN_MATKHAU + " TEXT, " + TAIKHOAN_SDT + " TEXT, "
                 + TAIKHOAN_PHANQUYEN + " INTEGER )";
 
-
         String tbTruyen = "CREATE TABLE " + TABLE_TRUYEN + " ( " + TRUYEN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TRUYEN_TENTRUYEN + " TEXT, " + TRUYEN_TENTACGIA + " TEXT, " + TRUYEN_MOTA + " TEXT, "
                 + TRUYEN_IMAGE + " TEXT, " + TRUYEN_LINK + " TEXT, " + TRUYEN_THELOAI_ID + " INTEGER, " + TRUYEN_TRANGTHAI + " TEXT, " + TRUYEN_LUOTXEM + " INTEGER, "
                 + TRUYEN_NGAYDANG + " DATETIME, " + TRUYEN_NGAYCAPNHATCUOI + " DATETIME )";
 
-
         String tbTheLoai = "CREATE TABLE " + TABLE_THELOAI + " ( " + THELOAI_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + THELOAI_TEN + " TEXT )";
-
 
         String tbYeuThich = "CREATE TABLE " + TABLE_YEUTHICH + " ( " + YEUTHICH_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + YEUTHICH_TAIKHOAN_ID + " INTEGER, " + YEUTHICH_TRUYEN_ID + " INTEGER, " + YEUTHICH_NGAYTHEM + " DATETIME )";
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 139c6f35af93667a8b55273ae28998c0c2411ad8
         String tbDangDoc = "CREATE TABLE " + TABLE_DANGDOC + " ( " + DANGDOC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DANGDOC_TAIKHOAN_ID + " INTEGER, " + DANGDOC_TRUYEN_ID + " INTEGER, " + DANGDOC_NGAYTHEM + " DATETIME )";
-
-
 
 
         // Thêm tên thể loại
@@ -111,7 +102,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String theloai_truyendangian = "INSERT INTO tbTheLoai VAlUES (null,'Truyện dân gian')";
         String theloai_giaoduc = "INSERT INTO tbTheLoai VAlUES (null,'Giáo dục')";
         String theloai_truyenngan = "INSERT INTO tbTheLoai VAlUES (null,'Truyện ngắn')";
-
 
         // Thêm tên thể loại
         String sach_tieuthuyet_matbiec = "INSERT INTO tbTruyen VAlUES (null,'Mắt biếc','Nguyễn Nhật Ánh','Mắt biếc là một tiểu thuyết lãng mạn nổi tiếng của nhà văn Nguyễn Nhật Ánh. Câu chuyện xoay quanh tình yêu đơn phương của Ngạn, một chàng trai quê, dành cho Hà Lan, cô bạn có đôi mắt biếc cuốn hút từ thuở nhỏ. Tuy nhiên, Hà Lan lại yêu một người khác và rời xa làng quê, để lại Ngạn với nỗi nhớ và tình cảm không bao giờ được đáp lại. Mắt biếc không chỉ là câu chuyện về tình yêu mà còn là nỗi tiếc nuối của những ký ức tuổi thơ, sự thay đổi của con người qua thời gian.','matbiec',null,1,null,null,'2024-11-20','2024-11-20')";
