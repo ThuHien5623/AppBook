@@ -257,6 +257,20 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
+    public Cursor GetTop5SachTheoTheLoai(String categoryName) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        // Truy vấn top 5 truyện theo thể loại
+        return db.rawQuery(
+                "SELECT t.* FROM " + TABLE_TRUYEN + " t " +
+                        "JOIN " + TABLE_THELOAI + " tl ON t." + TRUYEN_THELOAI_ID + " = tl." + THELOAI_ID + " " +
+                        "WHERE tl." + THELOAI_TEN + " = ?" +
+                        "LIMIT 5",  // Lấy tối đa 5 kết quả
+                new String[]{categoryName}
+        );
+    }
+
+
+
 
 //    // Phương thức Lấy truyện theo tên ID thể loại
 //    public Cursor getBooksByCategory(int categoryId) {

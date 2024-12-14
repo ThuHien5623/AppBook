@@ -24,12 +24,6 @@ public class MainTrangChuActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trangchu);
 
-        // Nhận dữ liệu từ Intent
-        String xinchao = getIntent().getStringExtra("tenTK");
-        // Hiển thị tên xin chào
-        TextView txtXinChao = findViewById(R.id.txtXinChao);
-        txtXinChao.setText("Xin chào " + xinchao);
-
         // Khởi tạo đối tượng MyDatabaseHelper
         databasedoctruyen = new MyDatabaseHelper(this);
 

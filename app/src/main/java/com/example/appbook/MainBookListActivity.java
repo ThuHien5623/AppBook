@@ -52,12 +52,16 @@ public class MainBookListActivity extends Activity {
                 // Lấy chỉ mục của các cột từ cursor
                 int columnIndexTitle = cursor.getColumnIndex("truyen_tentruyen");
                 int columnIndexAuthor = cursor.getColumnIndex("truyen_tentacgia");
-                int columnIndexCover = cursor.getColumnIndex("truyen_image");
+                int columnIndexImage = cursor.getColumnIndex("truyen_image");
+                int columnIndextheloaiid = cursor.getColumnIndex("theloai_id");
+                int columnIndexMoTa = cursor.getColumnIndex("truyen_mota");
 
                 // Kiểm tra nếu cột tồn tại và lấy giá trị
                 String tensach = "";
                 String tacgia = "";
                 String image = "";
+                int theloai_id = 0;
+                String mota = "";
 
                 // Nếu cột tồn tại và không phải là -1 (tức là có cột này)
                 if (columnIndexTitle != -1) {
@@ -66,10 +70,17 @@ public class MainBookListActivity extends Activity {
                 if (columnIndexAuthor != -1) {
                     tacgia = cursor.getString(columnIndexAuthor);
                 }
-                if (columnIndexCover != -1) {
-                    image = cursor.getString(columnIndexCover);
+                if (columnIndexImage != -1) {
+                    image = cursor.getString(columnIndexImage);
                 }
-                books.add(new Book(tensach, tacgia, image));
+                if (columnIndexMoTa != -1) {
+                    mota = cursor.getString(columnIndexMoTa);
+                }
+                if (columnIndextheloaiid != -1) {
+                    theloai_id = cursor.getInt(columnIndextheloaiid);
+                }
+
+                books.add(new Book(tensach, tacgia, image,mota,theloai_id));
             } while (cursor.moveToNext());
         }
 
@@ -80,16 +91,19 @@ public class MainBookListActivity extends Activity {
         bookAdapter = new BookAdapter(this, books);
         listView.setAdapter(bookAdapter);
 
-//        // Xử lý sự kiện click
-////        listView.setOnItemClickListener((parent, view, position, id) -> {
-////            Book selectedBook = books.get(position);
-////
-////            Intent intent = new Intent(MainBookListActivity.this, BookDetailActivity.class);
-////            intent.putExtra("title", selectedBook.getTitle());
-////            intent.putExtra("author", selectedBook.getAuthor());
-////            intent.putExtra("cover", selectedBook.getCover());
-////            startActivity(intent);
-////        });
+        // Xử lý sự kiện click
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Book selectedBook = books.get(position);
+
+            Intent intent = new Intent(MainBookListActivity.this, MainChiTietBookActivity.class);
+            intent.putExtra("theloai_ten", tentheloai);
+            intent.putExtra("truyen_tentruyen", selectedBook.getTensach());
+            intent.putExtra("truyen_tentacgia", selectedBook.getTacgia());
+            intent.putExtra("truyen_image", selectedBook.getImage());
+            intent.putExtra("theloai_id", selectedBook.getTheloai_id());
+            intent.putExtra("truyen_mota", selectedBook.getMota());
+            startActivity(intent);
+        });
 
 
 

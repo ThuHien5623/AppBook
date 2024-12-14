@@ -15,15 +15,6 @@
         android:background="#006d77">
 
 
-        <!--        <ImageView-->
-        <!--            android:id="@+id/user_icon"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:src="@drawable/user"-->
-        <!--            android:layout_gravity="center_vertical"-->
-        <!--            android:layout_marginLeft="5dp" />-->
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,6 +22,8 @@
             android:gravity="center_vertical"
             android:padding="4dp"
             android:background="#006d77">
+
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -43,11 +36,14 @@
                     android:id="@+id/txtXinChao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Xin chào Thu Hà"
+                    android:text="Chào mừng đến với AppBook!"
                     android:textColor="#FFFFFF"
-                    android:textSize="25sp"
-                    android:layout_marginLeft="10dp"/>
+                    android:textSize="22sp"
+                    android:layout_marginLeft="10dp"
+                    />
             </LinearLayout>
+
+
             <ImageView
                 android:id="@+id/btnDangXuat"
                 android:layout_width="wrap_content"
@@ -55,311 +51,321 @@
                 android:src="@drawable/baseline_logout_24"
                 android:layout_gravity="end|center_vertical"
                 android:layout_marginLeft="5dp" />
-
-
         </LinearLayout>
-
-
-
-
     </LinearLayout>
+
+
     <!-- HorizontalScrollView -->
-    <HorizontalScrollView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="1dp"
-        android:scrollbars="none">
+        android:layout_height="0dp"
+        android:layout_weight="1">
         <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:orientation="horizontal">
-            <!-- Các mục thêm động -->
-        </LinearLayout>
-    </HorizontalScrollView>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:orientation="horizontal">
-
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:scaleType="fitCenter"
-            android:src="@drawable/banner1" />
-    </LinearLayout>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NỔI BẬT"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:layout_marginTop="2dp"
-        android:layout_marginLeft="10dp" />
-
-
-    <!-- HorizontalScrollView Nổi bật -->
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:scrollbars="none">
-
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            >
-
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
+            android:orientation="vertical">
+            <HorizontalScrollView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
-                <ImageView
-                    android:id="@+id/img_book_cover1"
+                android:padding="1dp"
+                android:scrollbars="none"
+                android:contentDescription="Thanh động DANH MỤC">
+                <LinearLayout
+                    android:id="@+id/linearLayout"
                     android:layout_width="wrap_content"
-                    android:layout_height="185dp"
-                    android:src="@drawable/matbiec"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+                    <!-- Các mục thêm động -->
+                </LinearLayout>
+            </HorizontalScrollView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:scaleType="fitCenter"
-                    android:layout_gravity="center" />
-                <TextView
-                    android:id="@+id/txt_book_title1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:text="Mắt biếc"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"
-                    android:gravity="center"/>
-                <TextView
-                    android:id="@+id/txt_book_author1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="N.N.Ánh"
-                    android:textSize="18sp"
-                    android:gravity="center"/>
+                    android:src="@drawable/banner1" />
             </LinearLayout>
 
 
-            <LinearLayout
-                android:orientation="vertical"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:text="NỔI BẬT"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp" />
 
 
-                <ImageView
-                    android:id="@+id/img_book_cover2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="185dp"
-                    android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/banthanhpho" />
-
-
-                <TextView
-                    android:id="@+id/txt_book_title2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:text="Thành phố"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"
-                    android:gravity="center"/>
-                <TextView
-                    android:id="@+id/txt_book_author2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="N.T.Bình"
-                    android:textSize="18sp"
-                    android:gravity="center"/>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
+            <!-- scroll ngang của nổi bật -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
-                <ImageView
-                    android:id="@+id/img_book_cover3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="185dp"
-                    android:src="@drawable/ongnoiphieuluuky"
-                    android:scaleType="centerCrop"
-                    android:layout_gravity="center" />
-                <TextView
-                    android:id="@+id/txt_book_title3"
+                android:fillViewport="true"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:text="Ông nội"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"
-                    android:gravity="center"/>
-                <TextView
-                    android:id="@+id/txt_book_author3"
+                    android:gravity="center">
+
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp">
+                        <ImageView
+                            android:layout_width="130dp"
+                            android:layout_height="180dp"
+                            android:src="@drawable/matbiec"
+                            android:scaleType="fitCenter"
+                            android:layout_gravity="center" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:text="Mắt biếc"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:gravity="center"/>
+                        <TextView
+                            android:id="@+id/txt_book_author1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="N.N.Ánh"
+                            android:textSize="18sp"
+                            android:gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp">
+                        <ImageView
+                            android:layout_width="130dp"
+                            android:layout_height="180dp"
+                            android:src="@drawable/matbiec"
+                            android:scaleType="fitCenter"
+                            android:layout_gravity="center" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:text="Mắt biếc"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="N.N.Ánh"
+                            android:textSize="18sp"
+                            android:gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp">
+                        <ImageView
+                            android:layout_width="130dp"
+                            android:layout_height="180dp"
+                            android:src="@drawable/matbiec"
+                            android:scaleType="fitCenter"
+                            android:layout_gravity="center" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:text="Mắt biếc"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="N.N.Ánh"
+                            android:textSize="18sp"
+                            android:gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp">
+                        <ImageView
+                            android:layout_width="130dp"
+                            android:layout_height="180dp"
+                            android:src="@drawable/matbiec"
+                            android:scaleType="fitCenter"
+                            android:layout_gravity="center" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:text="Mắt biếc"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="N.N.Ánh"
+                            android:textSize="18sp"
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+
+                    <!-- Add more books similarly -->
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="MỚI XUẤT BẢN"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp" />
+
+
+            <!-- ScrollView ngang Mới xuất bản -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pearson"
-                    android:textSize="18sp"
-                    android:gravity="center"/>
-            </LinearLayout>
+                    android:gravity="center">
 
 
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp">
+                        <ImageView
+                            android:layout_width="130dp"
+                            android:layout_height="180dp"
+                            android:src="@drawable/noikhurungchamtoinhungvisao"
+                            android:scaleType="fitCenter"
+                            android:layout_gravity="center" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:text="Khu rừng"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vanderah"
+                            android:textSize="18sp"
+                            android:gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp">
+                        <ImageView
+                            android:layout_width="130dp"
+                            android:layout_height="180dp"
+                            android:src="@drawable/noikhurungchamtoinhungvisao"
+                            android:scaleType="fitCenter"
+                            android:layout_gravity="center" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:text="Khu rừng"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vanderah"
+                            android:textSize="18sp"
+                            android:gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp">
+                        <ImageView
+                            android:layout_width="130dp"
+                            android:layout_height="180dp"
+                            android:src="@drawable/noikhurungchamtoinhungvisao"
+                            android:scaleType="fitCenter"
+                            android:layout_gravity="center" />
+                        <TextView
+                            android:id="@+id/txt_book_title4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:text="Khu rừng"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:gravity="center"/>
+                        <TextView
+                            android:id="@+id/txt_book_author4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vanderah"
+                            android:textSize="18sp"
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+
+                    <!-- Add more books similarly -->
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
         </LinearLayout>
-    </HorizontalScrollView>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="MỚI XUẤT BẢN"
-        android:textSize="19sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="10dp" />
-
-
-    <!-- HorizontalScrollView Mới xuất bản -->
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:scrollbars="none"> <!-- Ẩn thanh cuộn nếu muốn -->
-
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            >
-
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
-                <ImageView
-                    android:id="@+id/img_book_cover4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="185dp"
-                    android:src="@drawable/noikhurungchamtoinhungvisao"
-                    android:scaleType="fitCenter"
-                    android:layout_gravity="center" />
-                <TextView
-                    android:id="@+id/txt_book_title4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:text="Khu rừng"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"
-                    android:gravity="center"/>
-                <TextView
-                    android:id="@+id/txt_book_author4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Vanderah"
-                    android:textSize="18sp"
-                    android:gravity="center"/>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
-                <ImageView
-                    android:id="@+id/img_book_cover5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="185dp"
-                    android:src="@drawable/anhmeovanvacochimen"
-                    android:scaleType="centerCrop"
-                    android:layout_gravity="center" />
-                <TextView
-                    android:id="@+id/txt_book_title5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:text="Mèo vằn"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"
-                    android:gravity="center"/>
-                <TextView
-                    android:id="@+id/txt_book_author5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Amado"
-                    android:textSize="18sp"
-                    android:gravity="center"/>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
-                <ImageView
-                    android:id="@+id/img_book_cover6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="185dp"
-                    android:src="@drawable/nguoivietnam"
-                    android:scaleType="centerCrop"
-                    android:layout_gravity="center" />
-                <TextView
-                    android:id="@+id/txt_book_title6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:text="Việt Nam"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"
-                    android:gravity="center"/>
-                <TextView
-                    android:id="@+id/txt_book_author6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="N.T.Tộ"
-                    android:textSize="18sp"
-                    android:gravity="center"/>
-            </LinearLayout>
-
-
-        </LinearLayout>
-    </HorizontalScrollView>
-
-
-    <!-- Thanh điều hướng cố định -->
+    </ScrollView>
     <LinearLayout
         android:id="@+id/button_bar"
         android:layout_width="match_parent"
@@ -368,11 +374,15 @@
         android:background="#FFFFFF"
         android:orientation="vertical"
         android:padding="16dp">
+
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="35dp"
             android:gravity="center"
             android:orientation="horizontal">
+
+
             <Button
                 android:id="@+id/btn_home"
                 android:layout_width="wrap_content"
@@ -384,6 +394,8 @@
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
+
+
             <Button
                 android:id="@+id/btn_reading"
                 android:layout_width="wrap_content"
@@ -395,6 +407,8 @@
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
+
+
             <Button
                 android:id="@+id/btn_favorite"
                 android:layout_width="wrap_content"
@@ -406,8 +420,10 @@
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
         </LinearLayout>
+
+
     </LinearLayout>
-
-
 </LinearLayout>
+
+
 
