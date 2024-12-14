@@ -3,11 +3,14 @@
   <component name="deploymentTargetSelector">
     <selectionStates>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
       <SelectionState runConfigName="MainDangNhapActivity">
 =======
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+>>>>>>> 08f49f88332809f346fb8c9ee46e3f5e56e01046
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
