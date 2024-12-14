@@ -4,18 +4,19 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
-import android.database.Cursor; // Để làm việc với con trỏ SQLite
-import android.graphics.Color; // Để đặt màu nền và màu chữ
-import android.widget.LinearLayout; // Để làm việc với LinearLayout
+import android.database.Cursor;
+import android.graphics.Color;
+import android.widget.LinearLayout;
 import android.widget.Button;
-import android.widget.TextView; // Để tạo và thêm TextView
-
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 public class MainTrangChuActivity extends Activity {
     Button btn_reading, btn_favorite;
-
+    ImageView btn_DangXuat;
     MyDatabaseHelper databasedoctruyen;
 
     @Override
@@ -23,11 +24,18 @@ public class MainTrangChuActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trangchu);
 
+        // Nhận dữ liệu từ Intent
+        String xinchao = getIntent().getStringExtra("tenTK");
+        // Hiển thị tên xin chào
+        TextView txtXinChao = findViewById(R.id.txtXinChao);
+        txtXinChao.setText("Xin chào " + xinchao);
+
         // Khởi tạo đối tượng MyDatabaseHelper
         databasedoctruyen = new MyDatabaseHelper(this);
 
         btn_reading = findViewById(R.id.btn_reading);
         btn_favorite = findViewById(R.id.btn_favorite);
+        btn_DangXuat = findViewById(R.id.btnDangXuat);
 
         // THE LOẠI //
         // Tìm LinearLayout từ layout
@@ -64,10 +72,17 @@ public class MainTrangChuActivity extends Activity {
 
                         // Thêm sự kiện OnClickListener
                         textView.setOnClickListener(v -> {
-                            // Chuyển sang màn hình khác khi click
-                            Intent intent = new Intent(MainTrangChuActivity.this, MainBookListActivity.class);
-                            intent.putExtra("theloai_ten", tentheloai); // Truyền dữ liệu qua Intent
-                            startActivity(intent); // Bắt đầu Activity mới
+//                            // Chuyển sang màn hình khác khi click
+//                            Intent intent = new Intent(MainTrangChuActivity.this, MainBookListActivity.class);
+//                            intent.putExtra("theloai_ten", tentheloai); // Truyền dữ liệu qua Intent
+//                            startActivity(intent); // Bắt đầu Activity mới
+                            if (tentheloai != null) {
+                                Intent intent = new Intent(MainTrangChuActivity.this, MainBookListActivity.class);
+                                intent.putExtra("theloai_ten", tentheloai);  // Truyền tên thể loại
+                                startActivity(intent);  // Bắt đầu Activity mới
+                            } else {
+                                Log.e("MainTrangChu", "Tên thể loại là null");
+                            }
                         });
 
                         // Thêm TextView vào LinearLayout
@@ -115,6 +130,15 @@ public class MainTrangChuActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainTrangChuActivity.this, MainYeuThichActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Tạo sự kiện click button đăng xuất thì tro ve trang dang nhap
+        btn_DangXuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainTrangChuActivity.this, MainDangNhapActivity.class);
                 startActivity(intent);
             }
         });
