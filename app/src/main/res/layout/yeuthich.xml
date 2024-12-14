@@ -29,7 +29,9 @@
     </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="590dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -308,7 +310,7 @@
                 android:text="TRANG CHỦ"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_reading"
@@ -319,8 +321,8 @@
                 android:background="#65AFAB"
                 android:text="ĐANG ĐỌC"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_favorite"
@@ -331,7 +333,7 @@
                 android:text="YÊU THÍCH"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
     </LinearLayout>
