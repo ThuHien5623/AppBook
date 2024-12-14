@@ -294,7 +294,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="35dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -304,7 +304,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:background="#65AFAB"
+                android:background="#00A79D"
                 android:text="TRANG CHỦ"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
@@ -327,7 +327,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#00A79D"
+                android:background="#65AFAB"
                 android:text="YÊU THÍCH"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
