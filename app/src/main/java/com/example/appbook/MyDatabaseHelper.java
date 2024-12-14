@@ -51,7 +51,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String YEUTHICH_NGAYTHEM = "yeuthich_ngaythem";
 
     //Bảng truyện đang đọc
-    public static final String TABLE_ĐANGDOC = "tbDangDoc";
+    public static final String TABLE_DANGDOC = "tbDangDoc";
     public static final String DANGDOC_ID = "dangdoc_id";
     public static final String DANGDOC_TAIKHOAN_ID = "taikhoan_id";
     public static final String DANGDOC_TRUYEN_ID = "truyen_id";
@@ -81,7 +81,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String tbYeuThich = "CREATE TABLE " + TABLE_YEUTHICH + " ( " + YEUTHICH_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + YEUTHICH_TAIKHOAN_ID + " INTEGER, " + YEUTHICH_TRUYEN_ID + " INTEGER, " + YEUTHICH_NGAYTHEM + " DATETIME )";
 
-        String tbDangDoc = "CREATE TABLE " + TABLE_ĐANGDOC + " ( " + DANGDOC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+        String tbDangDoc = "CREATE TABLE " + TABLE_DANGDOC + " ( " + DANGDOC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DANGDOC_TAIKHOAN_ID + " INTEGER, " + DANGDOC_TRUYEN_ID + " INTEGER, " + DANGDOC_NGAYTHEM + " DATETIME )";
 
 
@@ -94,7 +94,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         // Thêm tên thể loại
         String sach_tieuthuyet_matbiec = "INSERT INTO tbTruyen VAlUES (null,'Mắt biếc','Nguyễn Nhật Ánh','Mắt biếc là một tiểu thuyết lãng mạn nổi tiếng của nhà văn Nguyễn Nhật Ánh. Câu chuyện xoay quanh tình yêu đơn phương của Ngạn, một chàng trai quê, dành cho Hà Lan, cô bạn có đôi mắt biếc cuốn hút từ thuở nhỏ. Tuy nhiên, Hà Lan lại yêu một người khác và rời xa làng quê, để lại Ngạn với nỗi nhớ và tình cảm không bao giờ được đáp lại. Mắt biếc không chỉ là câu chuyện về tình yêu mà còn là nỗi tiếc nuối của những ký ức tuổi thơ, sự thay đổi của con người qua thời gian.','matbiec',null,1,null,null,'2024-11-20','2024-11-20')";
-        String sach_tieuthuyet_ongnoiphieuluyki = "INSERT INTO tbTruyen VALUES (null, 'Ông Nội Phiêu Lưu Ký', 'Dương Khuê', '“Ông Nội Phiêu Lưu Ký” là một câu chuyện thú vị và hấp dẫn về những cuộc phiêu lưu kỳ thú của một ông lão và những đứa trẻ trong gia đình. Qua đó, tác phẩm truyền tải những bài học về tình yêu thương, sự kiên trì và lòng dũng cảm.', 'ongnoiphieuluuky', 1, null, null, '2024-11-21', '2024-11-21')";
+        String sach_tieuthuyet_ongnoiphieuluyki = "INSERT INTO tbTruyen VALUES (null, 'Ông Nội Phiêu Lưu Ký', 'Dương Khuê', '“Ông Nội Phiêu Lưu Ký” là một câu chuyện thú vị và hấp dẫn về những cuộc phiêu lưu kỳ thú của một ông lão và những đứa trẻ trong gia đình. Qua đó, tác phẩm truyền tải những bài học về tình yêu thương, sự kiên trì và lòng dũng cảm.', 'ongnoiphieuluuky',null, 1, null, null, '2024-11-21', '2024-11-21')";
         String sach_tieuthuyet_chipheo = "INSERT INTO tbTruyen VALUES (null,'Chí Phèo','Nam Cao','Chí Phèo là một tác phẩm nổi tiếng của Nam Cao, phản ánh cuộc sống của người nông dân nghèo khổ dưới chế độ phong kiến. Câu chuyện xoay quanh bi kịch của Chí Phèo, một người đàn ông bị xã hội xua đuổi, đã đánh mất nhân phẩm và trở thành kẻ hung dữ. Tuy nhiên, trong con người anh vẫn tiềm ẩn những yếu tố của tình yêu và lòng nhân ái, tạo nên một câu chuyện đầy đau đớn về xã hội và số phận con người.','chipheo',null,1,null,null,'2024-11-21','2024-11-21')";
         String sach_tieuthuyet_doithua = "INSERT INTO tbTruyen VALUES (null,'Đời thừa','Nam Cao','Đời thừa là một tiểu thuyết kinh điển của Nam Cao về cuộc sống của những con người nghèo khổ trong xã hội cũ. Qua những nhân vật chính là Hộ và bà vợ, Nam Cao đã khắc họa một cách sâu sắc về số phận và sự chán nản, tuyệt vọng của con người trong một xã hội thiếu công bằng và nhân đạo.','doithua',null,1,null,null,'2024-11-22','2024-11-22')";
         String sach_tieuthuyet_hoangtu = "INSERT INTO tbTruyen VALUES (null,'Hoàng tử bé','Antoine de Saint-Exupéry','Hoàng tử bé là một trong những cuốn tiểu thuyết nổi tiếng nhất trên thế giới. Tác phẩm kể về cuộc hành trình của một hoàng tử đến thăm các hành tinh khác nhau và gặp gỡ những con người kỳ lạ. Qua đó, tác giả khắc họa những bài học sâu sắc về cuộc sống, tình yêu và sự trưởng thành.','hoangtube',null,1,null,null,'2024-11-21','2024-11-21')";
