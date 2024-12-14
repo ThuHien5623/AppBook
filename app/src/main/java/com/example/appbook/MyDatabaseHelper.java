@@ -95,7 +95,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String tbYeuThich = "CREATE TABLE " + TABLE_YEUTHICH + " ( " + YEUTHICH_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + YEUTHICH_TAIKHOAN_ID + " INTEGER, " + YEUTHICH_TRUYEN_ID + " INTEGER, " + YEUTHICH_NGAYTHEM + " DATETIME )";
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 139c6f35af93667a8b55273ae28998c0c2411ad8
         String tbDangDoc = "CREATE TABLE " + TABLE_DANGDOC + " ( " + DANGDOC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DANGDOC_TAIKHOAN_ID + " INTEGER, " + DANGDOC_TRUYEN_ID + " INTEGER, " + DANGDOC_NGAYTHEM + " DATETIME )";
 
