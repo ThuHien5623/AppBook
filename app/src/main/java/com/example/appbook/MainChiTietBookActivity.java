@@ -8,6 +8,8 @@ import android.view.Gravity;
 import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,14 +18,17 @@ import androidx.annotation.Nullable;
 
 public class MainChiTietBookActivity extends Activity {
     MyDatabaseHelper databasedoctruyen;
+    ImageView back_button;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.thongtin);
 
+        back_button = findViewById(R.id.back_button);
 
         // Nhận dữ liệu từ Intent
+//        String tentheloai = getIntent().getStringExtra("theloai_ten");
         String truyen_tentruyen = getIntent().getStringExtra("truyen_tentruyen");
         String truyen_tentacgia = getIntent().getStringExtra("truyen_tentacgia");
         String truyen_image = getIntent().getStringExtra("truyen_image");
@@ -121,5 +126,16 @@ public class MainChiTietBookActivity extends Activity {
             cursor.close();
         }
 
+
+        //Tạo sự kiện click button đang đọc khi chuyển sang màn hình đang đọc với Intent
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainChiTietBookActivity.this, MainBookListActivity.class);
+
+                intent.putExtra("theloai_ten", theloai_ten);
+                startActivity(intent);
+            }
+        });
     }
 }

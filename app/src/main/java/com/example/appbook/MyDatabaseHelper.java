@@ -216,16 +216,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-
         // Thực hiện insert thông qua ContentValues
         values.put(TAIKHOAN_TENDANGNHAP, taikhoan.getmTenDangNhap());
         values.put(TAIKHOAN_MATKHAU, taikhoan.getmMatKhau());
         values.put(TAIKHOAN_SDT, taikhoan.getmSDT());
         values.put(TAIKHOAN_PHANQUYEN, taikhoan.getmPhanQuyen());
 
-
         db.insert(TABLE_TAIKHOAN, null, values);
-
 
         //Đóng lại khi không dùng
 //        db.close();
@@ -257,6 +254,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
+    // Phương thức Lấy top 5 truyện theo tên thể loại mới nhất ừ dưới lên
     public Cursor GetTop5SachTheoTheLoai(String categoryName) {
         SQLiteDatabase db = this.getReadableDatabase();
         // Truy vấn top 5 truyện theo thể loại
@@ -269,17 +267,36 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
+    public Cursor GetTop10SachMoiXuatBan() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery(
+                "SELECT t." + TRUYEN_TENTRUYEN + ", t." + TRUYEN_TENTACGIA + ", t." + TRUYEN_MOTA + ", t." + TRUYEN_IMAGE + ", tl." + THELOAI_TEN + " " +
+                        "FROM " + TABLE_TRUYEN + " t " +
+                        "JOIN " + TABLE_THELOAI + " tl ON t." + THELOAI_ID + " = tl." + THELOAI_ID + " " +
+                        "ORDER BY t." + TRUYEN_NGAYDANG + " DESC " +
+                        "LIMIT 10",
+                null
+        );
+    }
 
+    public Cursor TimKiemSach(String query) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery(
+                "SELECT * FROM " + TABLE_TRUYEN + " WHERE " +
+                        TRUYEN_TENTRUYEN + " LIKE ?", // Chỉ tìm theo tên sách
+                new String[]{"%" + query + "%"} // Thêm dấu % để tìm kiếm theo phần của tên sách
+        );
+    }
 
-
-//    // Phương thức Lấy truyện theo tên ID thể loại
-//    public Cursor getBooksByCategory(int categoryId) {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        return db.rawQuery(
-//                "SELECT * FROM " + TABLE_TRUYEN + " WHERE " + TRUYEN_THELOAI_ID + " = ?",
-//                new String[]{String.valueOf(categoryId)}
-//        );
-//    }
-
+    public Cursor TimKiemSachTheoTheLoai(String query, String tentheloai) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery(
+                "SELECT t." + TRUYEN_TENTRUYEN + ", t." + TRUYEN_TENTACGIA + ", t." + TRUYEN_MOTA + ", t." + TRUYEN_IMAGE + ", tl." + THELOAI_TEN + " " +
+                        "FROM " + TABLE_TRUYEN + " t " +
+                        "JOIN " + TABLE_THELOAI + " tl ON t." + THELOAI_ID + " = tl." + THELOAI_ID + " " +
+                        "WHERE t." + TRUYEN_TENTRUYEN + " LIKE ? AND tl." + THELOAI_TEN + " = ?",
+                new String[]{"%" + query + "%", tentheloai}
+        );
+    }
 
 }
