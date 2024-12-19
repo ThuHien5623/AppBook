@@ -267,6 +267,19 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
+<<<<<<< HEAD
+    public Cursor GetTop10SachMoiXuatBan() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery(
+                "SELECT t." + TRUYEN_TENTRUYEN + ", t." + TRUYEN_TENTACGIA + ", t." + TRUYEN_MOTA + ", t." + TRUYEN_IMAGE + ", tl." + THELOAI_TEN + " " +
+                        "FROM " + TABLE_TRUYEN + " t " +
+                        "JOIN " + TABLE_THELOAI + " tl ON t." + THELOAI_ID + " = tl." + THELOAI_ID + " " +
+                        "ORDER BY t." + TRUYEN_NGAYDANG + " DESC " +
+                        "LIMIT 10",
+                null
+        );
+    }
+=======
     // Truy vấn top 10 sách mới xuất bản (lấy từ dưới lên)
     public Cursor GetTop10SachMoiXuatBan() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -279,14 +292,35 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-//    // Phương thức Lấy truyện theo tên ID thể loại
-//    public Cursor getBooksByCategory(int categoryId) {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        return db.rawQuery(
-//                "SELECT * FROM " + TABLE_TRUYEN + " WHERE " + TRUYEN_THELOAI_ID + " = ?",
-//                new String[]{String.valueOf(categoryId)}
-//        );
-//    }
+<<<<<<< .mine
 
 
+=======
+>>>>>>> bdd0f629469bb2f3c20a5b780f4f6d1aac3902d4
+
+>>>>>>> .theirs
+    public Cursor TimKiemSach(String query) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery(
+                "SELECT * FROM " + TABLE_TRUYEN + " WHERE " +
+                        TRUYEN_TENTRUYEN + " LIKE ?", // Chỉ tìm theo tên sách
+                new String[]{"%" + query + "%"} // Thêm dấu % để tìm kiếm theo phần của tên sách
+        );
+    }
+
+    public Cursor TimKiemSachTheoTheLoai(String query, String tentheloai) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery(
+                "SELECT t." + TRUYEN_TENTRUYEN + ", t." + TRUYEN_TENTACGIA + ", t." + TRUYEN_MOTA + ", t." + TRUYEN_IMAGE + ", tl." + THELOAI_TEN + " " +
+                        "FROM " + TABLE_TRUYEN + " t " +
+                        "JOIN " + TABLE_THELOAI + " tl ON t." + THELOAI_ID + " = tl." + THELOAI_ID + " " +
+                        "WHERE t." + TRUYEN_TENTRUYEN + " LIKE ? AND tl." + THELOAI_TEN + " = ?",
+                new String[]{"%" + query + "%", tentheloai}
+        );
+    }
+<<<<<<< .mine
+
+=======
+
+>>>>>>> .theirs
 }

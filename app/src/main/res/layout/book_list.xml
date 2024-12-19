@@ -41,6 +41,19 @@
         android:textSize="25sp"
         android:textStyle="bold" />
 
+    <!-- TextView cho thông báo không có kết quả, đặt sau tiêu đề thể loại -->
+    <TextView
+        android:id="@+id/noResultsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTenTheLoai"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Không có kết quả"
+        android:textSize="20sp"
+        android:visibility="gone" /> <!-- Ban đầu ẩn đi -->
+
     <!-- ListView sách -->
     <ListView
         android:id="@+id/listViewBooks"
@@ -50,6 +63,7 @@
         android:layout_below="@id/tvTenTheLoai"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp" />
+
     <!-- Thanh nút -->
     <LinearLayout
         android:id="@+id/button_bar"

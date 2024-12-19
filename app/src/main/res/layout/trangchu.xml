@@ -259,106 +259,14 @@
                 android:scrollbars="none">
 
                 <LinearLayout
-                    android:id="@+id/linearLayoutSachMoiXuatBan"
+                    android:id="@+id/linear_layout_books"
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center">
+                    android:gravity="center" />
 
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp">
-                        <ImageView
-                            android:layout_width="130dp"
-                            android:layout_height="180dp"
-                            android:src="@drawable/noikhurungchamtoinhungvisao"
-                            android:scaleType="fitCenter"
-                            android:layout_gravity="center" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:text="Khu rừng"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/black"
-                            android:gravity="center"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vanderah"
-                            android:textSize="18sp"
-                            android:gravity="center"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp">
-                        <ImageView
-                            android:layout_width="130dp"
-                            android:layout_height="180dp"
-                            android:src="@drawable/noikhurungchamtoinhungvisao"
-                            android:scaleType="fitCenter"
-                            android:layout_gravity="center" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:text="Khu rừng"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/black"
-                            android:gravity="center"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vanderah"
-                            android:textSize="18sp"
-                            android:gravity="center"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp">
-                        <ImageView
-                            android:layout_width="130dp"
-                            android:layout_height="180dp"
-                            android:src="@drawable/noikhurungchamtoinhungvisao"
-                            android:scaleType="fitCenter"
-                            android:layout_gravity="center" />
-                        <TextView
-                            android:id="@+id/txt_book_title4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:text="Khu rừng"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/black"
-                            android:gravity="center"/>
-                        <TextView
-                            android:id="@+id/txt_book_author4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vanderah"
-                            android:textSize="18sp"
-                            android:gravity="center"/>
-                    </LinearLayout>
-                    <!-- Add more books similarly -->
-
-
-                </LinearLayout>
             </HorizontalScrollView>
+
 
 
         </LinearLayout>

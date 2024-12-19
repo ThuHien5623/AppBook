@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.content.SharedPreferences;
 
 import androidx.annotation.Nullable;
 
@@ -24,6 +25,21 @@ public class MainDangNhapActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dangnhap);
 
+        // Kiểm tra trạng thái đăng nhập
+        SharedPreferences sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+
+        if (isLoggedIn) {
+            // Chuyển đến MainTrangChuActivity nếu đã đăng nhập
+            Intent intent = new Intent(MainDangNhapActivity.this, MainTrangChuActivity.class);
+            int idtaikhoan = sharedPreferences.getInt("idtaikhoan", -1); // Nếu cần gửi thêm dữ liệu
+            intent.putExtra("idtaikhoan", idtaikhoan);
+            startActivity(intent);
+            finish(); // Đóng màn hình đăng nhập
+            return;
+        }
+
+        setContentView(R.layout.dangnhap);
         AnhXa();
 
         databasedoctruyen = new MyDatabaseHelper(this);

@@ -107,6 +107,112 @@ public class MainTrangChuActivity extends Activity {
 
         // MOI XUAT BAN //
 
+        // LinearLayout chứa các mục sách
+        LinearLayout linear_layout_books = findViewById(R.id.linear_layout_books);
+
+        Cursor cursorMoiXuatBan = databasedoctruyen.GetTop10SachMoiXuatBan();
+
+        if (cursorMoiXuatBan != null && cursorMoiXuatBan.moveToFirst()) {
+            do {
+                int columnIndexTitle = cursorMoiXuatBan.getColumnIndex("truyen_tentruyen");
+                int columnIndexAuthor = cursorMoiXuatBan.getColumnIndex("truyen_tentacgia");
+                int columnIndexImage = cursorMoiXuatBan.getColumnIndex("truyen_image");
+                int columnIndexTheLoai = cursorMoiXuatBan.getColumnIndex("theloai_ten");
+                int columnIndexMoTa = cursorMoiXuatBan.getColumnIndex("truyen_mota");
+
+                String tentruyen;
+                String tentacgia;
+                String image;
+                String theloai;
+                String mota;
+
+
+                // Nếu cột tồn tại và không phải là -1 (tức là có cột này)
+                if (columnIndexTitle != -1) {
+                    tentruyen = cursorMoiXuatBan.getString(columnIndexTitle);
+                } else {
+                    tentruyen = "";
+                }
+                if (columnIndexAuthor != -1) {
+                    tentacgia = cursorMoiXuatBan.getString(columnIndexAuthor);
+                }
+                else {
+                    tentacgia = "";
+                }
+                if (columnIndexImage != -1) {
+                    image = cursorMoiXuatBan.getString(columnIndexImage);
+                }
+                else {
+                    image = "";
+                }
+                if (columnIndexTheLoai != -1) {
+                    theloai = cursorMoiXuatBan.getString(columnIndexTheLoai);
+                }
+                else {
+                    theloai = "";
+                }
+                if (columnIndexMoTa != -1) {
+                    mota = cursorMoiXuatBan.getString(columnIndexMoTa);
+                }
+                else {
+                    mota = "";
+                }
+
+
+                // Tạo LinearLayout cho mỗi sách
+                LinearLayout bookLayout = new LinearLayout(this);
+                bookLayout.setOrientation(LinearLayout.VERTICAL);
+                bookLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT));
+                bookLayout.setPadding(5, 5, 5, 5);
+
+                // Tạo ImageView cho hình ảnh của sách
+                ImageView bookImage = new ImageView(this);
+                // Đảm bảo rằng đường dẫn đến hình ảnh hợp lệ
+                bookImage.setImageResource(getResources().getIdentifier(image, "drawable", getPackageName()));
+                bookImage.setLayoutParams(new LinearLayout.LayoutParams(400, 500));
+                bookLayout.addView(bookImage);
+
+                // Tạo TextView cho tên sách
+                TextView bookTitle = new TextView(this);
+                bookTitle.setText(tentruyen);
+                bookTitle.setTextSize(14);
+                bookTitle.setTextColor(Color.BLACK);
+                bookTitle.setGravity(Gravity.CENTER);
+                bookLayout.addView(bookTitle);
+
+                // Tạo TextView cho tên tác giả
+                TextView bookAuthor = new TextView(this);
+                bookAuthor.setText(tentacgia);
+                bookAuthor.setTextColor(Color.parseColor("#666666"));
+                bookAuthor.setTextSize(12);
+                bookAuthor.setGravity(Gravity.CENTER);
+                bookLayout.addView(bookAuthor);
+
+                // Thêm sự kiện click vào LinearLayout của sách
+                bookLayout.setOnClickListener(v -> {
+                    // Gửi dữ liệu qua Intent để chuyển sang màn hình chi tiết sách
+                    Intent intent = new Intent(MainTrangChuActivity.this, MainChiTietBookActivity.class);
+                    intent.putExtra("truyen_tentruyen", tentruyen);
+                    intent.putExtra("truyen_tentacgia", tentacgia);
+                    intent.putExtra("truyen_image", image);
+                    intent.putExtra("theloai_ten", theloai);
+                    intent.putExtra("truyen_mota", mota);
+                    startActivity(intent);
+
+                });
+
+                // Thêm Layout vào LinearLayout chính
+                linear_layout_books.addView(bookLayout);
+
+            } while (cursorMoiXuatBan.moveToNext());
+            cursorMoiXuatBan.close();
+        }
+
+
+
+
 
         //Tạo sự kiện click button đang đọc khi chuyển sang màn hình đang đọc với Intent
         btn_reading.setOnClickListener(new View.OnClickListener() {
