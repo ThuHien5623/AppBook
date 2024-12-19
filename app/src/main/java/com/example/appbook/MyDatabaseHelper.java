@@ -279,9 +279,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
-
-
 //    // Phương thức Lấy truyện theo tên ID thể loại
 //    public Cursor getBooksByCategory(int categoryId) {
 //        SQLiteDatabase db = this.getReadableDatabase();

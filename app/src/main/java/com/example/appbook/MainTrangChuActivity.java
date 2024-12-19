@@ -2,6 +2,7 @@ package com.example.appbook;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.content.Intent;
 import android.database.Cursor;
@@ -66,10 +67,7 @@ public class MainTrangChuActivity extends Activity {
 
                         // Thêm sự kiện OnClickListener
                         textView.setOnClickListener(v -> {
-//                            // Chuyển sang màn hình khác khi click
-//                            Intent intent = new Intent(MainTrangChuActivity.this, MainBookListActivity.class);
-//                            intent.putExtra("theloai_ten", tentheloai); // Truyền dữ liệu qua Intent
-//                            startActivity(intent); // Bắt đầu Activity mới
+                            // Chuyển sang màn hình khác khi click
                             if (tentheloai != null) {
                                 Intent intent = new Intent(MainTrangChuActivity.this, MainBookListActivity.class);
                                 intent.putExtra("theloai_ten", tentheloai);  // Truyền tên thể loại

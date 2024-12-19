@@ -258,13 +258,12 @@
                 android:fillViewport="true"
                 android:scrollbars="none">
 
-
                 <LinearLayout
+                    android:id="@+id/linearLayoutSachMoiXuatBan"
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center">
-
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -355,13 +354,13 @@
                             android:textSize="18sp"
                             android:gravity="center"/>
                     </LinearLayout>
-
-
                     <!-- Add more books similarly -->
 
 
                 </LinearLayout>
             </HorizontalScrollView>
+
+
         </LinearLayout>
 
 

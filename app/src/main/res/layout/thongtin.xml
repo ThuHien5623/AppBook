@@ -105,6 +105,9 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
                 </LinearLayout>
+
+                <!-- Thêm các mục tự động -->
+
             </HorizontalScrollView>
         </LinearLayout>
     </ScrollView>
