@@ -267,6 +267,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
+<<<<<<< HEAD
     public Cursor GetTop10SachMoiXuatBan() {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery(
@@ -278,6 +279,20 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 null
         );
     }
+=======
+    // Truy vấn top 10 sách mới xuất bản (lấy từ dưới lên)
+    public Cursor GetTop10SachMoiXuatBan() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery(
+                "SELECT * FROM " + TABLE_TRUYEN + " " +
+                        "ORDER BY " + TRUYEN_NGAYDANG + " DESC " + // Sắp xếp theo ngày xuất bản từ cũ đến mới
+                        "LIMIT 10",  // Lấy tối đa 10 kết quả
+                null
+        );
+    }
+
+
+>>>>>>> bdd0f629469bb2f3c20a5b780f4f6d1aac3902d4
 
     public Cursor TimKiemSach(String query) {
         SQLiteDatabase db = this.getReadableDatabase();
