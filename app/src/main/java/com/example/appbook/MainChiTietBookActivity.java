@@ -28,11 +28,7 @@ public class MainChiTietBookActivity extends Activity {
         back_button = findViewById(R.id.back_button);
 
         // Nhận dữ liệu từ Intent
-<<<<<<< HEAD
 //        String tentheloai = getIntent().getStringExtra("theloai_ten");
-=======
-        String tentheloai = getIntent().getStringExtra("theloai_ten");
->>>>>>> bdd0f629469bb2f3c20a5b780f4f6d1aac3902d4
         String truyen_tentruyen = getIntent().getStringExtra("truyen_tentruyen");
         String truyen_tentacgia = getIntent().getStringExtra("truyen_tentacgia");
         String truyen_image = getIntent().getStringExtra("truyen_image");
@@ -137,11 +133,7 @@ public class MainChiTietBookActivity extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainChiTietBookActivity.this, MainBookListActivity.class);
 
-<<<<<<< HEAD
                 intent.putExtra("theloai_ten", theloai_ten);
-=======
-                intent.putExtra("theloai_ten", tentheloai);
->>>>>>> bdd0f629469bb2f3c20a5b780f4f6d1aac3902d4
                 startActivity(intent);
             }
         });
