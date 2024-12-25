@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF"/>  <!-- Màu nền của Button -->
+    <corners android:radius="15dp"/>    <!-- Độ bo tròn góc của Button -->
+    <stroke android:color="#157e7a" android:width="2dp"/>  <!-- Màu và độ dày của border -->
+</shape>

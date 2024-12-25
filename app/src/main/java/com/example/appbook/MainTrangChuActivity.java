@@ -2,6 +2,7 @@ package com.example.appbook;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -9,10 +10,13 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.util.Log;
+import androidx.appcompat.app.AlertDialog;
+import android.content.DialogInterface;
 
 import androidx.annotation.Nullable;
 
@@ -54,8 +58,10 @@ public class MainTrangChuActivity extends Activity {
                         // Tạo TextView và thêm dữ liệu
                         TextView textView = new TextView(this);
                         textView.setText(tentheloai);
-                        textView.setPadding(16, 16, 16, 16);
-                        textView.setBackgroundColor(Color.LTGRAY);
+                        textView.setPadding(20, 20, 20, 20);
+//                        textView.setBackgroundColor(Color.WHITE);
+                        textView.setTextSize(17);
+                        textView.setBackgroundResource(R.drawable.bt_img); // Set background
                         textView.setTextColor(Color.BLACK);
 
                         // Thiết lập LayoutParams để thêm margin
@@ -63,7 +69,7 @@ public class MainTrangChuActivity extends Activity {
                                 LinearLayout.LayoutParams.WRAP_CONTENT, // Chiều rộng
                                 LinearLayout.LayoutParams.WRAP_CONTENT  // Chiều cao
                         );
-                        params.setMargins(20, 20, 10, 20); // Thiết lập margin: left, top, right, bottom
+                        params.setMargins(10, 20, 10, 20); // Thiết lập margin: left, top, right, bottom
                         textView.setLayoutParams(params);
 
                         // Thêm sự kiện OnClickListener
@@ -174,30 +180,45 @@ public class MainTrangChuActivity extends Activity {
                 bookLayout.setLayoutParams(new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT));
-                bookLayout.setPadding(5, 5, 5, 5);
+                bookLayout.setGravity(Gravity.CENTER);
+                bookLayout.setPadding(30, 15, 30, 15);
+
+                // Creating FrameLayout for image
+                FrameLayout frameLayout = new FrameLayout(this);
+                frameLayout.setLayoutParams(new LinearLayout.LayoutParams(330, 500));
+//                frameLayout.setLayoutGravity(Gravity.CENTER);
+                frameLayout.setBackgroundResource(R.drawable.bt_img); // Set background
+                frameLayout.setClipToOutline(true);
 
                 // Tạo ImageView cho hình ảnh của sách
                 ImageView bookImage = new ImageView(this);
+                bookImage.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+                bookImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 // Đảm bảo rằng đường dẫn đến hình ảnh hợp lệ
                 bookImage.setImageResource(getResources().getIdentifier(image, "drawable", getPackageName()));
-                bookImage.setLayoutParams(new LinearLayout.LayoutParams(400, 500));
-                bookLayout.addView(bookImage);
+                frameLayout.addView(bookImage);
+
+                // Adding FrameLayout to the main book layout
+                bookLayout.addView(frameLayout);
 
                 // Tạo TextView cho tên sách
                 TextView bookTitle = new TextView(this);
                 bookTitle.setText(tentruyen);
-                bookTitle.setTextSize(14);
+                bookTitle.setTextSize(20);
                 bookTitle.setTextColor(Color.BLACK);
                 bookTitle.setGravity(Gravity.CENTER);
+                bookTitle.setTypeface(null, Typeface.BOLD);  // Make title bold
                 bookLayout.addView(bookTitle);
+
 
                 // Tạo TextView cho tên tác giả
                 TextView bookAuthor = new TextView(this);
                 bookAuthor.setText(tentacgia);
-                bookAuthor.setTextColor(Color.parseColor("#666666"));
-                bookAuthor.setTextSize(12);
+                bookAuthor.setTextSize(18);
+                bookAuthor.setTextColor(Color.BLACK);
                 bookAuthor.setGravity(Gravity.CENTER);
                 bookLayout.addView(bookAuthor);
+
 
                 // Thêm sự kiện click vào LinearLayout của sách
                 bookLayout.setOnClickListener(v -> {
@@ -256,5 +277,47 @@ public class MainTrangChuActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+
+//        // Thêm sự kiện click cho nút Đăng xuất
+//        btn_DangXuat.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Tạo AlertDialog để xác nhận
+//                AlertDialog.Builder builder = new AlertDialog.Builder(MainTrangChuActivity.this);
+//                builder.setTitle("Xác nhận đăng xuất");
+//                builder.setMessage("Bạn có muốn đăng xuất không?");
+//
+//                // Nút Đồng ý
+//                builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        // Xóa dữ liệu đăng nhập (SharedPreferences)
+//                        SharedPreferences sharedPreferences = getSharedPreferences("AppBookPrefs", MODE_PRIVATE);
+//                        SharedPreferences.Editor editor = sharedPreferences.edit();
+//                        editor.clear(); // Xóa toàn bộ dữ liệu SharedPreferences
+//                        editor.apply(); // Lưu thay đổi
+//
+//                        // Chuyển sang màn hình đăng nhập
+//                        Intent intent = new Intent(MainTrangChuActivity.this, MainDangNhapActivity.class);
+//                        startActivity(intent);
+//                        finish(); // Kết thúc Activity hiện tại
+//                    }
+//                });
+//
+//                // Nút Hủy
+//                builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        // Đóng hộp thoại
+//                        dialogInterface.dismiss();
+//                    }
+//                });
+//
+//                // Hiển thị hộp thoại
+//                AlertDialog dialog = builder.create();
+//                dialog.show();
+//            }
+//        });
     }
 }

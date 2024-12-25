@@ -2,6 +2,7 @@ package com.example.appbook;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.Gravity;
 import android.content.SharedPreferences;
@@ -9,6 +10,7 @@ import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -20,7 +22,9 @@ import androidx.annotation.Nullable;
 public class MainChiTietBookActivity extends Activity {
     MyDatabaseHelper databasedoctruyen;
     ImageView back_button, heart_button;
+    LinearLayout btnDocSach;
     private boolean isHeartSelected = false;
+    private boolean isReadingSelected = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,7 +32,9 @@ public class MainChiTietBookActivity extends Activity {
         setContentView(R.layout.thongtin);
 
         back_button = findViewById(R.id.back_button);
-        heart_button = findViewById(R.id.heart); // Biểu tượng yêu thích
+        heart_button = findViewById(R.id.heart);
+        btnDocSach = findViewById(R.id.btnDocSach);
+
 
         // Nhận dữ liệu từ Intent
         String truyen_tentruyen = getIntent().getStringExtra("truyen_tentruyen");
@@ -40,14 +46,13 @@ public class MainChiTietBookActivity extends Activity {
         int theloai_id = getIntent().getIntExtra("theloai_id", -1);
 
 
-        Log.d("truyen", "truyen_id: " + truyen_id);  // Log taikhoan_id
-        Log.d("truyen", "truyen_tentacgia: " + truyen_tentacgia);  // Log taikhoan_id
-        Log.d("truyen", "truyen_image: " + truyen_image);  // Log taikhoan_id
-        Log.d("truyen", "theloai_ten: " + theloai_ten);  // Log taikhoan_id
-        Log.d("truyen", "truyen_mota: " + truyen_mota);  // Log taikhoan_id
-        Log.d("truyen", "truyen_tentruyen: " + truyen_tentruyen);  // Log taikhoan_id
-        Log.d("truyen", "theloai_id: " + theloai_id);  // Log taikhoan_id
-
+        Log.d("truyen", "truyen_id: " + truyen_id);
+        Log.d("truyen", "truyen_tentacgia: " + truyen_tentacgia);
+        Log.d("truyen", "truyen_image: " + truyen_image);
+        Log.d("truyen", "theloai_ten: " + theloai_ten);
+        Log.d("truyen", "truyen_mota: " + truyen_mota);
+        Log.d("truyen", "truyen_tentruyen: " + truyen_tentruyen);
+        Log.d("truyen", "theloai_id: " + theloai_id);
 
 
         // Hiển thị tên truyện
@@ -100,30 +105,43 @@ public class MainChiTietBookActivity extends Activity {
                 bookLayout.setLayoutParams(new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT));
-                bookLayout.setPadding(5, 5, 5, 5);
+                bookLayout.setGravity(Gravity.CENTER);
+                bookLayout.setPadding(30, 15, 30, 15);
+
+                // Creating FrameLayout for image
+                FrameLayout frameLayout = new FrameLayout(this);
+                frameLayout.setLayoutParams(new LinearLayout.LayoutParams(330, 500));
+                frameLayout.setBackgroundResource(R.drawable.bt_img); // Set background
+                frameLayout.setClipToOutline(true);
 
                 // Tạo ImageView cho hình ảnh của sách
                 ImageView bookImage = new ImageView(this);
+                bookImage.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+                bookImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 // Đảm bảo rằng đường dẫn đến hình ảnh hợp lệ
                 bookImage.setImageResource(getResources().getIdentifier(image, "drawable", getPackageName()));
-                bookImage.setLayoutParams(new LinearLayout.LayoutParams(400, 500));
-                bookLayout.addView(bookImage);
+                frameLayout.addView(bookImage);
+
+                // Adding FrameLayout to the main book layout
+                bookLayout.addView(frameLayout);
 
                 // Tạo TextView cho tên sách
                 TextView bookTitle = new TextView(this);
                 bookTitle.setText(tentruyen);
-                bookTitle.setTextSize(14);
+                bookTitle.setTextSize(20);
                 bookTitle.setTextColor(Color.BLACK);
                 bookTitle.setGravity(Gravity.CENTER);
+                bookTitle.setTypeface(null, Typeface.BOLD);  // Make title bold
                 bookLayout.addView(bookTitle);
 
                 // Tạo TextView cho tên tác giả
                 TextView bookAuthor = new TextView(this);
                 bookAuthor.setText(tentacgia);
-                bookAuthor.setTextColor(Color.parseColor("#666666"));
-                bookAuthor.setTextSize(12);
+                bookAuthor.setTextSize(18);
+                bookAuthor.setTextColor(Color.BLACK);
                 bookAuthor.setGravity(Gravity.CENTER);
                 bookLayout.addView(bookAuthor);
+
 
                 // Thêm sự kiện click vào LinearLayout của sách
                 bookLayout.setOnClickListener(v -> {
@@ -210,6 +228,45 @@ public class MainChiTietBookActivity extends Activity {
 
                 // Đổi trạng thái của biến isHeartSelected
                 isHeartSelected = !isHeartSelected;
+            }
+        });
+
+
+        // Sự kiện click vào đọc sách
+        btnDocSach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Kiểm tra nếu taikhoan_id hợp lệ
+                if (idtaikhoan != -1) {
+                    // Kiểm tra xem truyện đã có trong bảng "đang đọc" chưa
+                    Cursor cursordangdoc = databasedoctruyen.getReadingList(idtaikhoan, truyen_id);
+                    boolean isReading = false;
+
+                    if (cursordangdoc != null && cursordangdoc.moveToFirst()) {
+                        do {
+                            int columnIndexTruyenID = cursordangdoc.getColumnIndex("truyen_id");
+                            int truyenid = cursordangdoc.getInt(columnIndexTruyenID);
+
+                            if (truyenid == truyen_id) {
+                                isReading = true;
+                                break;
+                            }
+                        } while (cursordangdoc.moveToNext());
+                        cursordangdoc.close();
+                    }
+
+                    if (!isReading) {
+                        // Nếu chưa có trong bảng "đang đọc", thêm vào bảng
+                        databasedoctruyen.addToReadingList(idtaikhoan, truyen_id);
+
+                        // Tăng thêm 1 lượt xem trong bảng tbTruyen
+                        databasedoctruyen.incrementViewCount(truyen_id);
+
+                        Log.d("MainChiTietBookActivity", "Đã thêm truyện vào bảng đang đọc và tăng lượt xem");
+                    } else {
+                        Log.d("MainChiTietBookActivity", "Truyen da co trong bang dang dọc");
+                    }
+                }
             }
         });
 

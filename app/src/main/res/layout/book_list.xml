@@ -68,15 +68,14 @@
     <LinearLayout
         android:id="@+id/button_bar"
         android:layout_width="match_parent"
-        android:layout_height="63dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        android:padding="16dp">
-
+        android:padding="5dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -86,11 +85,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:background="#00A79D"
+                android:background="@drawable/bt1"
                 android:text="TRANG CHỦ"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_reading"
@@ -98,10 +97,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:background="#65AFAB"
+                android:background="@drawable/bt2"
                 android:text="ĐANG ĐỌC"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="#157e7a"
                 android:textSize="18sp" />
 
             <Button
@@ -109,13 +108,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#65AFAB"
+                android:background="@drawable/bt2"
                 android:text="YÊU THÍCH"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="#157e7a"
                 android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>
+
 
 </RelativeLayout>

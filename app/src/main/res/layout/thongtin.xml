@@ -21,21 +21,32 @@
                 android:layout_marginTop="20dp"
                 android:background="#edf6f9"
                 android:orientation="horizontal"
-                android:padding="2dp">
+                android:padding="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingRight="10dp">
+
 
                 <!-- Book Description -->
-                <ImageView
-                    android:id="@+id/book_image"
-                    android:layout_width="150dp"
+                <FrameLayout
+                    android:layout_width="130dp"
                     android:layout_height="200dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:src="@drawable/matbiec" />
+                    android:layout_gravity="center"
+                    android:background="@drawable/bt_img"
+                    android:clipToOutline="true">
+                    <ImageView
+                        android:id="@+id/book_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/matbiec"
+                        android:scaleType="centerCrop"
+                        android:clipToOutline="true"/>
+                </FrameLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp">
 
                     <TextView
                         android:id="@+id/book_title"
@@ -56,6 +67,7 @@
                         android:text="Tác giả: Nguyễn Nhật Ánh"
                         android:textSize="18sp" />
 
+
                     <TextView
                         android:id="@+id/book_genre"
                         android:layout_width="wrap_content"
@@ -65,6 +77,7 @@
                         android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -81,6 +94,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#212121"/>
+
 
                 <TextView
                     android:id="@+id/book_description_content"
@@ -116,39 +130,42 @@
                 </LinearLayout>
 
                 <!-- Thêm các mục tự động -->
-
             </HorizontalScrollView>
         </LinearLayout>
     </ScrollView>
 
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="63dp"
-        android:gravity="center_vertical"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/back_button"
-            android:layout_width="55dp"
+            android:layout_width="50dp"
             android:layout_height="55dp"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/ic_back" />
+            android:layout_marginRight="15dp"
+            android:src="@drawable/back"/>
 
         <LinearLayout
+            android:id="@+id/btnDocSach"
             android:layout_width="250dp"
-            android:layout_height="match_parent"
-            android:background="#006d77"
+            android:layout_height="55dp"
+            android:background="@drawable/bt1"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:layout_gravity="center"
             android:paddingStart="30dp">
 
             <ImageView
                 android:id="@+id/book_icon"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:src="@drawable/ic_docsach" />
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bt1"
+                android:src="@drawable/icon_docsach"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -157,36 +174,17 @@
                 android:text="ĐỌC SÁCH"
                 android:textColor="#ffffff"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textFontWeight="500"/>
         </LinearLayout>
 
         <ImageView
             android:id="@+id/heart"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:layout_marginStart="16dp"
-            android:src="@drawable/baseline_favorite_24" />
-
-
-
+            android:src="@drawable/baseline_favorite_24"
+            android:layout_marginLeft="15dp"/>
 
     </LinearLayout>
 
+
 </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -4,388 +4,233 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#edf6f9"
+    android:background="#127f78"
     android:orientation="vertical">
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
-        android:padding="12.5dp">
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="-1dp">
 
         <ImageView
             android:id="@+id/back_button"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:src="@drawable/icon_back"></ImageView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="55dp"
-            android:layout_marginLeft="45dp"
-            android:text="ĐANG ĐỌC"
-            android:textColor="#006d77"
-            android:textSize="40sp"
-            android:textStyle="bold"></TextView>
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/undo"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/main_border"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ĐANG ĐỌC"
+            android:textColor="#127f78"
+            android:textSize="25dp"
+            android:textFontWeight="600"/>
+    </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#e3edee">
+        <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            android:columnCount="3"
+            android:padding="5dp">
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingBottom="10dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
+                android:layout_margin="5dp"
+                android:layout_columnWeight="1"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bt_img"
+                    android:clipToOutline="true">
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/matbiec"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/b" />
-
+                        android:clipToOutline="true" />
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/bin" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mắt biếc" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nguyễn Nhật Ánh" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="end|bottom"
+                        android:src="@drawable/bin"
+                        android:layout_marginBottom="0dp" />
+                </FrameLayout>
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Mắt biếc" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nguyễn Nhật Ánh"
+                    android:textSize="18sp"
+                    android:gravity="center"/>
 
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_columnWeight="1"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bt_img"
+                    android:clipToOutline="true">
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/matbiec"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/b" />
-
+                        android:clipToOutline="true" />
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/bin" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mắt biếc" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nguyễn Nhật Ánh" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="end|bottom"
+                        android:src="@drawable/bin"
+                        android:layout_marginBottom="0dp" />
+                </FrameLayout>
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
+                    android:text="Mắt biếc"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nguyễn Nhật Ánh"
+                    android:textSize="18sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_columnWeight="1"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bt_img"
+                    android:clipToOutline="true">
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/matbiec"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/b" />
-
+                        android:clipToOutline="true" />
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/bin" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mắt biếc" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nguyễn Nhật Ánh" />
-                </LinearLayout>
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="end|bottom"
+                        android:src="@drawable/bin"
+                        android:layout_marginBottom="0dp" />
+                </FrameLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mắt biếc"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nguyễn Nhật Ánh"
+                    android:textSize="18sp"
+                    android:gravity="center" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingBottom="10dp">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/b" />
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/bin" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mắt biếc" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nguyễn Nhật Ánh" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/b" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/bin" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mắt biếc" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nguyễn Nhật Ánh" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/b" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/bin" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mắt biếc" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nguyễn Nhật Ánh" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingBottom="10dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/b" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/bin" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mắt biếc" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nguyễn Nhật Ánh" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/b" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/bin" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mắt biếc" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nguyễn Nhật Ánh" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/b" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/bin" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mắt biếc" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nguyễn Nhật Ánh" />
-                </LinearLayout>
-            </LinearLayout>
-
-        </LinearLayout>
+        </GridLayout>
     </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
 
     <LinearLayout
         android:id="@+id/button_bar"
         android:layout_width="match_parent"
-        android:layout_height="63dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        android:padding="16dp">
-
+        android:padding="5dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:gravity="center"
             android:orientation="horizontal">
-
             <Button
                 android:id="@+id/btn_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:background="#00A79D"
+                android:background="@drawable/bt2"
                 android:text="TRANG CHỦ"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="#157e7a"
                 android:textSize="18sp" />
-
             <Button
                 android:id="@+id/btn_reading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:background="#65AFAB"
+                android:background="@drawable/bt1"
                 android:text="ĐANG ĐỌC"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
-
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
             <Button
                 android:id="@+id/btn_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#65AFAB"
+                android:background="@drawable/bt2"
                 android:text="YÊU THÍCH"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="#157e7a"
                 android:textSize="18sp" />
         </LinearLayout>
-
     </LinearLayout>
+
+
 </LinearLayout>
