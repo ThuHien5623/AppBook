@@ -7,7 +7,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import androidx.annotation.Nullable;
 
@@ -224,10 +226,30 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         db.insert(TABLE_TAIKHOAN, null, values);
 
-        //Đóng lại khi không dùng
-//        db.close();
         Log.e("ADD TK", "TC");
     }
+    
+//    // Method to add a book to the favorites
+//    public boolean addToFavorites(int userId, int bookId) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//
+//        // Get current date in the required format
+//        String currentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+//
+//        // Create ContentValues to insert into the table
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put(YEUTHICH_TAIKHOAN_ID, userId);
+//        contentValues.put(YEUTHICH_TRUYEN_ID, bookId);  // Assuming bookId is passed here
+//        contentValues.put(YEUTHICH_NGAYTHEM, currentDate);
+//
+//        // Insert data into the database
+//        long result = db.insert(TABLE_YEUTHICH, null, contentValues);
+//        db.close();
+//
+//        // Return whether the insert was successful
+//        return result != -1;
+//    }
+
 
 
     public Cursor getAccountByUsername(String username) {
@@ -270,7 +292,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public Cursor GetTop10SachMoiXuatBan() {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery(
-                "SELECT t." + TRUYEN_TENTRUYEN + ", t." + TRUYEN_TENTACGIA + ", t." + TRUYEN_MOTA + ", t." + TRUYEN_IMAGE + ", tl." + THELOAI_TEN + " " +
+                "SELECT t." + TRUYEN_ID + ", t." + TRUYEN_TENTRUYEN + ", t." + TRUYEN_TENTACGIA + ", t." + TRUYEN_MOTA + ", t." + TRUYEN_IMAGE + ", tl." + THELOAI_TEN + " " +
                         "FROM " + TABLE_TRUYEN + " t " +
                         "JOIN " + TABLE_THELOAI + " tl ON t." + THELOAI_ID + " = tl." + THELOAI_ID + " " +
                         "ORDER BY t." + TRUYEN_NGAYDANG + " DESC " +
@@ -279,24 +301,53 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
-    public Cursor TimKiemSach(String query) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery(
-                "SELECT * FROM " + TABLE_TRUYEN + " WHERE " +
-                        TRUYEN_TENTRUYEN + " LIKE ?", // Chỉ tìm theo tên sách
-                new String[]{"%" + query + "%"} // Thêm dấu % để tìm kiếm theo phần của tên sách
-        );
-    }
+
 
     public Cursor TimKiemSachTheoTheLoai(String query, String tentheloai) {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery(
-                "SELECT t." + TRUYEN_TENTRUYEN + ", t." + TRUYEN_TENTACGIA + ", t." + TRUYEN_MOTA + ", t." + TRUYEN_IMAGE + ", tl." + THELOAI_TEN + " " +
+                "SELECT t." + TRUYEN_ID + ", t." + TRUYEN_TENTRUYEN + ", t." + TRUYEN_TENTACGIA + ", t." + TRUYEN_MOTA + ", t." + TRUYEN_IMAGE + ", tl." + THELOAI_TEN + " " +
                         "FROM " + TABLE_TRUYEN + " t " +
                         "JOIN " + TABLE_THELOAI + " tl ON t." + THELOAI_ID + " = tl." + THELOAI_ID + " " +
                         "WHERE t." + TRUYEN_TENTRUYEN + " LIKE ? AND tl." + THELOAI_TEN + " = ?",
                 new String[]{"%" + query + "%", tentheloai}
         );
+    }
+
+
+    // Thêm truyện vào bảng yêu thích
+    public void addToFavorites(int taikhoan_id, int truyen_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(YEUTHICH_TAIKHOAN_ID, taikhoan_id);
+        values.put(YEUTHICH_TRUYEN_ID, truyen_id);
+        values.put(YEUTHICH_NGAYTHEM, "");
+        db.insert(TABLE_YEUTHICH, null, values);
+        db.close();
+    }
+
+    // Xóa truyện khỏi bảng yêu thích
+    public void removeFromFavorites(int taikhoan_id, int truyen_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_YEUTHICH, YEUTHICH_TAIKHOAN_ID + " = ? AND " + YEUTHICH_TRUYEN_ID + " = ?",
+                new String[]{String.valueOf(taikhoan_id), String.valueOf(truyen_id)});
+    }
+
+//    // Lấy danh sách yêu thích của người dùng
+//    public Cursor getFavorites(int taikhoan_id) {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        // Truy vấn bảng yêu thích để lấy tất cả truyện yêu thích của người dùng theo taikhoan_id
+//        String query = "SELECT * FROM " + TABLE_YEUTHICH + " WHERE " + YEUTHICH_TAIKHOAN_ID + " = ?";
+//        return db.rawQuery(query, new String[]{String.valueOf(taikhoan_id)});
+//    }
+
+    // Lấy danh sách yêu thích của người dùng theo taikhoan_id và truyen_id
+    public Cursor getFavorites(int taikhoan_id, int truyen_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        // Truy vấn bảng yêu thích để lấy tất cả truyện yêu thích của người dùng theo taikhoan_id và truyen_id
+        String query = "SELECT * FROM " + TABLE_YEUTHICH +
+                " WHERE " + YEUTHICH_TAIKHOAN_ID + " = ? AND " + YEUTHICH_TRUYEN_ID + " = ?";
+        return db.rawQuery(query, new String[]{String.valueOf(taikhoan_id), String.valueOf(truyen_id)});
     }
 
 }

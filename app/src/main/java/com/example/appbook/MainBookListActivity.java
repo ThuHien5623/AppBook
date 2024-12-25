@@ -28,7 +28,6 @@ public class MainBookListActivity extends Activity {
 
     MyDatabaseHelper databasedoctruyen;
     List<Book> books;
-    List<Book> allBooks; // Danh sách lưu toàn bộ sách theo thể loại
     BookAdapter bookAdapter;
 
     @Override
@@ -111,9 +110,15 @@ public class MainBookListActivity extends Activity {
             intent.putExtra("truyen_image", selectedBook.getImage());
             intent.putExtra("theloai_id", selectedBook.getTheloai_id());
             intent.putExtra("truyen_mota", selectedBook.getMota());
+            intent.putExtra("truyen_id", selectedBook.getTruyen_id());
+
+            Log.d("MainBookListActivity", "Intent - truyen_id: " + selectedBook.getTruyen_id() +
+                    ", theloai_id: " + selectedBook.getTheloai_id());
+
             startActivity(intent);
         });
     }
+
 
     // Hàm lấy danh sách sách theo thể loại
     private void loadBooksByCategory(String tentheloai) {
@@ -127,12 +132,14 @@ public class MainBookListActivity extends Activity {
                 int columnIndexImage = cursor.getColumnIndex("truyen_image");
                 int columnIndextheloaiid = cursor.getColumnIndex("theloai_id");
                 int columnIndexMoTa = cursor.getColumnIndex("truyen_mota");
+                int columnIndexTruyenid = cursor.getColumnIndex("truyen_id");
 
                 // Kiểm tra nếu cột tồn tại và lấy giá trị
                 String tensach = "";
                 String tacgia = "";
                 String image = "";
                 int theloai_id = 0;
+                int truyen_id = 0;
                 String mota = "";
 
                 // Nếu cột tồn tại và không phải là -1 (tức là có cột này)
@@ -148,11 +155,14 @@ public class MainBookListActivity extends Activity {
                 if (columnIndextheloaiid != -1) {
                     theloai_id = cursor.getInt(columnIndextheloaiid);
                 }
+                if (columnIndexTruyenid != -1) {
+                    truyen_id = cursor.getInt(columnIndexTruyenid);
+                }
                 if (columnIndexMoTa != -1) {
                     mota = cursor.getString(columnIndexMoTa);
                 }
 
-                books.add(new Book(tensach, tacgia, image,mota,theloai_id));
+                books.add(new Book(tensach, tacgia, image, mota, theloai_id, truyen_id));
             } while (cursor.moveToNext());
 
             cursor.close();
@@ -180,6 +190,7 @@ public class MainBookListActivity extends Activity {
                 int columnIndexImage = cursorTimKiemSach.getColumnIndex("truyen_image");
                 int columnIndexMoTa = cursorTimKiemSach.getColumnIndex("truyen_mota");
                 int columnIndextheloaiid = cursorTimKiemSach.getColumnIndex("theloai_id");
+                int columnIndexTruyenid = cursorTimKiemSach.getColumnIndex("truyen_id");
 
 
                 // Kiểm tra nếu cột tồn tại và lấy giá trị
@@ -187,6 +198,7 @@ public class MainBookListActivity extends Activity {
                 String tacgia = "";
                 String image = "";
                 int theloai_id = 0;
+                int truyen_id = 0;
                 String mota = "";
 
                 // Nếu cột tồn tại và không phải là -1 (tức là có cột này)
@@ -202,11 +214,14 @@ public class MainBookListActivity extends Activity {
                 if (columnIndextheloaiid != -1) {
                     theloai_id = cursorTimKiemSach.getInt(columnIndextheloaiid);
                 }
+                if (columnIndexTruyenid != -1) {
+                    truyen_id = cursorTimKiemSach.getInt(columnIndexTruyenid);
+                }
                 if (columnIndexMoTa != -1) {
                     mota = cursorTimKiemSach.getString(columnIndexMoTa);
                 }
 
-                books.add(new Book(tensach, tacgia, image,mota,theloai_id));
+                books.add(new Book(tensach, tacgia, image,mota,theloai_id,truyen_id));
             } while (cursorTimKiemSach.moveToNext());
 
             cursorTimKiemSach.close();

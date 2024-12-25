@@ -1,6 +1,7 @@
 package com.example.appbook;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -118,12 +119,14 @@ public class MainTrangChuActivity extends Activity {
                 int columnIndexAuthor = cursorMoiXuatBan.getColumnIndex("truyen_tentacgia");
                 int columnIndexImage = cursorMoiXuatBan.getColumnIndex("truyen_image");
                 int columnIndexTheLoai = cursorMoiXuatBan.getColumnIndex("theloai_ten");
+                int columnIndexTruyenID = cursorMoiXuatBan.getColumnIndex("truyen_id");
                 int columnIndexMoTa = cursorMoiXuatBan.getColumnIndex("truyen_mota");
 
                 String tentruyen;
                 String tentacgia;
                 String image;
                 String theloai;
+                int truyen_id;
                 String mota;
 
 
@@ -156,6 +159,12 @@ public class MainTrangChuActivity extends Activity {
                 }
                 else {
                     mota = "";
+                }
+                if (columnIndexTruyenID != -1) {
+                    truyen_id = cursorMoiXuatBan.getInt(columnIndexTruyenID);
+                }
+                else {
+                    truyen_id = 0;
                 }
 
 
@@ -199,8 +208,9 @@ public class MainTrangChuActivity extends Activity {
                     intent.putExtra("truyen_image", image);
                     intent.putExtra("theloai_ten", theloai);
                     intent.putExtra("truyen_mota", mota);
-                    startActivity(intent);
+                    intent.putExtra("truyen_id", truyen_id);
 
+                    startActivity(intent);
                 });
 
                 // Thêm Layout vào LinearLayout chính
@@ -236,6 +246,12 @@ public class MainTrangChuActivity extends Activity {
         btn_DangXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Đăng xuất người dùng
+                SharedPreferences sharedPreferences = getSharedPreferences("AppBookPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear(); // Xóa toàn bộ dữ liệu SharedPreferences
+                editor.apply(); // Lưu lại thay đổi
+
                 Intent intent = new Intent(MainTrangChuActivity.this, MainDangNhapActivity.class);
                 startActivity(intent);
             }

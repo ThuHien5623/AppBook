@@ -93,6 +93,15 @@
                     android:justificationMode="inter_word"/>
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SÁCH CÙNG THỂ LOẠI"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_margin="20dp"
+                android:textColor="#212121"/>
+
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -151,12 +160,16 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!--        <ImageView-->
-        <!--            android:id="@+id/heart"-->
-        <!--            android:layout_width="55dp"-->
-        <!--            android:layout_height="55dp"-->
-        <!--            android:layout_marginStart="16dp"-->
-        <!--            android:src="@drawable/tim" />-->
+        <ImageView
+            android:id="@+id/heart"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/baseline_favorite_24" />
+
+
+
+
     </LinearLayout>
 
 </LinearLayout>

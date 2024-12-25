@@ -6,13 +6,16 @@ public class Book {
     private String image;
     private String mota;
     private int theloai_id;
+    private int truyen_id;
 
-    public Book(String tensach, String tacgia, String image, String mota, int theloai_id) {
+
+    public Book(String tensach, String tacgia, String image, String mota, int theloai_id, int truyen_id) {
         this.tensach = tensach;
         this.tacgia = tacgia;
         this.image = image;
         this.mota = mota;
         this.theloai_id = theloai_id;
+        this.truyen_id = truyen_id;
     }
 
     public String getTensach() {
@@ -53,5 +56,13 @@ public class Book {
 
     public void setTheloai_id(int theloai_id) {
         this.theloai_id = theloai_id;
+    }
+
+    public int getTruyen_id() {
+        return truyen_id;
+    }
+
+    public void setTruyen_id(int truyen_id) {
+        this.truyen_id = truyen_id;
     }
 }

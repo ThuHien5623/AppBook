@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.Gravity;
-
+import android.content.SharedPreferences;
 import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ImageView;
@@ -18,7 +19,8 @@ import androidx.annotation.Nullable;
 
 public class MainChiTietBookActivity extends Activity {
     MyDatabaseHelper databasedoctruyen;
-    ImageView back_button;
+    ImageView back_button, heart_button;
+    private boolean isHeartSelected = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,14 +28,27 @@ public class MainChiTietBookActivity extends Activity {
         setContentView(R.layout.thongtin);
 
         back_button = findViewById(R.id.back_button);
+        heart_button = findViewById(R.id.heart); // Biểu tượng yêu thích
 
         // Nhận dữ liệu từ Intent
-//        String tentheloai = getIntent().getStringExtra("theloai_ten");
         String truyen_tentruyen = getIntent().getStringExtra("truyen_tentruyen");
         String truyen_tentacgia = getIntent().getStringExtra("truyen_tentacgia");
         String truyen_image = getIntent().getStringExtra("truyen_image");
         String theloai_ten = getIntent().getStringExtra("theloai_ten");
         String truyen_mota = getIntent().getStringExtra("truyen_mota");
+        int truyen_id = getIntent().getIntExtra("truyen_id", -1); // Giá trị mặc định là -1
+        int theloai_id = getIntent().getIntExtra("theloai_id", -1);
+
+
+        Log.d("truyen", "truyen_id: " + truyen_id);  // Log taikhoan_id
+        Log.d("truyen", "truyen_tentacgia: " + truyen_tentacgia);  // Log taikhoan_id
+        Log.d("truyen", "truyen_image: " + truyen_image);  // Log taikhoan_id
+        Log.d("truyen", "theloai_ten: " + theloai_ten);  // Log taikhoan_id
+        Log.d("truyen", "truyen_mota: " + truyen_mota);  // Log taikhoan_id
+        Log.d("truyen", "truyen_tentruyen: " + truyen_tentruyen);  // Log taikhoan_id
+        Log.d("truyen", "theloai_id: " + theloai_id);  // Log taikhoan_id
+
+
 
         // Hiển thị tên truyện
         TextView book_title = findViewById(R.id.book_title);
@@ -59,9 +74,10 @@ public class MainChiTietBookActivity extends Activity {
 
         // Lấy LinearLayout trong XML để chèn các mục sách vào
         LinearLayout linearLayout = findViewById(R.id.linearLayout);
-        // Lấy top 5 truyện theo thể loại
+
         databasedoctruyen = new MyDatabaseHelper(this);
 
+        // Lấy top 5 truyện theo thể loại
         Cursor cursor = databasedoctruyen.GetTop5SachTheoTheLoai(theloai_ten);
 
         if (cursor != null && cursor.moveToFirst()) {
@@ -70,11 +86,13 @@ public class MainChiTietBookActivity extends Activity {
                 int columnIndexAuthor = cursor.getColumnIndex("truyen_tentacgia");
                 int columnIndexImage = cursor.getColumnIndex("truyen_image");
                 int columnIndexMoTa = cursor.getColumnIndex("truyen_mota");
+                int columnIndexTruyenID = cursor.getColumnIndex("truyen_id");
 
                 String tentruyen = cursor.getString(columnIndexTitle);
                 String tentacgia = cursor.getString(columnIndexAuthor);
                 String image = cursor.getString(columnIndexImage);
                 String mota = cursor.getString(columnIndexMoTa);
+                int truyenid = cursor.getInt(columnIndexTruyenID);
 
                 // Tạo LinearLayout cho mỗi sách
                 LinearLayout bookLayout = new LinearLayout(this);
@@ -116,6 +134,7 @@ public class MainChiTietBookActivity extends Activity {
                     intent.putExtra("truyen_image", image);
                     intent.putExtra("theloai_ten", theloai_ten);
                     intent.putExtra("truyen_mota", mota);
+                    intent.putExtra("truyen_id", truyenid);
                     startActivity(intent);
                 });
 
@@ -126,8 +145,7 @@ public class MainChiTietBookActivity extends Activity {
             cursor.close();
         }
 
-
-        //Tạo sự kiện click button đang đọc khi chuyển sang màn hình đang đọc với Intent
+        // Sự kiện click nút trở về
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,5 +155,64 @@ public class MainChiTietBookActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+
+        // Lấy taikhoan_id từ SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("AppBookPrefs", MODE_PRIVATE);
+        int idtaikhoan = sharedPreferences.getInt("idtaikhoan", -1);  // Lấy ID người dùng từ SharedPreferences
+
+        Log.d("MainChiTietBookActivity", "idtaikhoan" + idtaikhoan);  // Log số lượng bản ghi trong cursor
+
+        // Kiểm tra nếu taikhoan_id hợp lệ
+        if (idtaikhoan != -1) {
+            // Kiểm tra xem truyện đã có trong yêu thích chưa
+            Cursor cursoryeuthich = databasedoctruyen.getFavorites(idtaikhoan, truyen_id);
+            boolean isFavorite = false;
+
+            if (cursoryeuthich != null && cursoryeuthich.moveToFirst()) {
+                do {
+                    int columnIndexTruyenID = cursoryeuthich.getColumnIndex("truyen_id");
+                    int truyenid = cursoryeuthich.getInt(columnIndexTruyenID);
+
+                    if (truyenid == truyen_id) {
+                        isFavorite = true;
+                        break;
+                    }
+                } while (cursoryeuthich.moveToNext());
+                cursoryeuthich.close();
+            }
+
+            // Cập nhật hình ảnh của nút tim dựa trên trạng thái yêu thích
+            if (isFavorite) {
+                heart_button.setImageResource(R.drawable.tim);  // Hình ảnh tim đã chọn
+                isHeartSelected = true;  // Set trạng thái tim là đã chọn
+            } else {
+                heart_button.setImageResource(R.drawable.baseline_favorite_24);  // Hình ảnh tim chưa chọn
+                isHeartSelected = false;  // Set trạng thái tim là chưa chọn
+            }
+        }
+
+        // Sự kiện click vào tim
+        heart_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    // Chuyển đổi giữa hai hình ảnh tim
+                if (isHeartSelected) {
+                    // Kiểm tra nếu truyện đã có trong yêu thích thì mới xóa
+                        heart_button.setImageResource(R.drawable.baseline_favorite_24);  // Hình ảnh tim chưa chọn
+                        // Xóa dữ liệu khỏi bảng yêu thích
+                        databasedoctruyen.removeFromFavorites(idtaikhoan, truyen_id);
+                } else {
+                    heart_button.setImageResource(R.drawable.tim);  // Hình ảnh tim đã chọn
+                    // Thêm dữ liệu vào bảng yêu thích
+                    databasedoctruyen.addToFavorites(idtaikhoan, truyen_id);
+                }
+
+                // Đổi trạng thái của biến isHeartSelected
+                isHeartSelected = !isHeartSelected;
+            }
+        });
+
+
     }
 }
