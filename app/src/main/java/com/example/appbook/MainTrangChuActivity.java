@@ -1,6 +1,7 @@
 package com.example.appbook;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -15,8 +16,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.util.Log;
-import androidx.appcompat.app.AlertDialog;
 import android.content.DialogInterface;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -37,7 +38,8 @@ public class MainTrangChuActivity extends Activity {
         btn_favorite = findViewById(R.id.btn_favorite);
         btn_DangXuat = findViewById(R.id.btnDangXuat);
 
-        // THE LOẠI //
+        // THE LOẠI // ---------------
+
         // Tìm LinearLayout từ layout
         LinearLayout linearLayout = findViewById(R.id.linearLayout);
         if (linearLayout == null) {
@@ -109,10 +111,135 @@ public class MainTrangChuActivity extends Activity {
         }
 
 
-        // NOI BAT //
+        // NOI BAT // ---------------------
+
+        // LinearLayout chứa các mục sách
+        LinearLayout linear_layout_booksnoibat = findViewById(R.id.linear_layout_booksnoibat);
+
+        Cursor cursorNoiBat = databasedoctruyen.GetTop10SachNoiBat();
+
+        if (cursorNoiBat != null && cursorNoiBat.moveToFirst()) {
+            do {
+                int columnIndexTitle = cursorNoiBat.getColumnIndex("truyen_tentruyen");
+                int columnIndexAuthor = cursorNoiBat.getColumnIndex("truyen_tentacgia");
+                int columnIndexImage = cursorNoiBat.getColumnIndex("truyen_image");
+                int columnIndexTheLoai = cursorNoiBat.getColumnIndex("theloai_ten");
+                int columnIndexTruyenID = cursorNoiBat.getColumnIndex("truyen_id");
+                int columnIndexMoTa = cursorNoiBat.getColumnIndex("truyen_mota");
+
+                String tentruyen;
+                String tentacgia;
+                String image;
+                String theloai;
+                int truyen_id;
+                String mota;
+
+                // Nếu cột tồn tại và không phải là -1 (tức là có cột này)
+                if (columnIndexTitle != -1) {
+                    tentruyen = cursorNoiBat.getString(columnIndexTitle);
+                } else {
+                    tentruyen = "";
+                }
+                if (columnIndexAuthor != -1) {
+                    tentacgia = cursorNoiBat.getString(columnIndexAuthor);
+                }
+                else {
+                    tentacgia = "";
+                }
+                if (columnIndexImage != -1) {
+                    image = cursorNoiBat.getString(columnIndexImage);
+                }
+                else {
+                    image = "";
+                }
+                if (columnIndexTheLoai != -1) {
+                    theloai = cursorNoiBat.getString(columnIndexTheLoai);
+                }
+                else {
+                    theloai = "";
+                }
+                if (columnIndexMoTa != -1) {
+                    mota = cursorNoiBat.getString(columnIndexMoTa);
+                }
+                else {
+                    mota = "";
+                }
+                if (columnIndexTruyenID != -1) {
+                    truyen_id = cursorNoiBat.getInt(columnIndexTruyenID);
+                }
+                else {
+                    truyen_id = 0;
+                }
 
 
-        // MOI XUAT BAN //
+                // Tạo LinearLayout cho mỗi sách
+                LinearLayout bookLayout = new LinearLayout(this);
+                bookLayout.setOrientation(LinearLayout.VERTICAL);
+                bookLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT));
+                bookLayout.setGravity(Gravity.CENTER);
+                bookLayout.setPadding(30, 15, 30, 15);
+
+                // Creating FrameLayout for image
+                FrameLayout frameLayout = new FrameLayout(this);
+                frameLayout.setLayoutParams(new LinearLayout.LayoutParams(330, 500));
+//                frameLayout.setLayoutGravity(Gravity.CENTER);
+                frameLayout.setBackgroundResource(R.drawable.bt_img); // Set background
+                frameLayout.setClipToOutline(true);
+
+                // Tạo ImageView cho hình ảnh của sách
+                ImageView bookImage = new ImageView(this);
+                bookImage.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+                bookImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                // Đảm bảo rằng đường dẫn đến hình ảnh hợp lệ
+                bookImage.setImageResource(getResources().getIdentifier(image, "drawable", getPackageName()));
+                frameLayout.addView(bookImage);
+
+                // Adding FrameLayout to the main book layout
+                bookLayout.addView(frameLayout);
+
+                // Tạo TextView cho tên sách
+                TextView bookTitle = new TextView(this);
+                bookTitle.setText(tentruyen);
+                bookTitle.setTextSize(20);
+                bookTitle.setTextColor(Color.BLACK);
+                bookTitle.setGravity(Gravity.CENTER);
+                bookTitle.setTypeface(null, Typeface.BOLD);  // Make title bold
+                bookLayout.addView(bookTitle);
+
+
+                // Tạo TextView cho tên tác giả
+                TextView bookAuthor = new TextView(this);
+                bookAuthor.setText(tentacgia);
+                bookAuthor.setTextSize(18);
+                bookAuthor.setTextColor(Color.BLACK);
+                bookAuthor.setGravity(Gravity.CENTER);
+                bookLayout.addView(bookAuthor);
+
+
+                // Thêm sự kiện click vào LinearLayout của sách
+                bookLayout.setOnClickListener(v -> {
+                    // Gửi dữ liệu qua Intent để chuyển sang màn hình chi tiết sách
+                    Intent intent = new Intent(MainTrangChuActivity.this, MainChiTietBookActivity.class);
+                    intent.putExtra("truyen_tentruyen", tentruyen);
+                    intent.putExtra("truyen_tentacgia", tentacgia);
+                    intent.putExtra("truyen_image", image);
+                    intent.putExtra("theloai_ten", theloai);
+                    intent.putExtra("truyen_mota", mota);
+                    intent.putExtra("truyen_id", truyen_id);
+
+                    startActivity(intent);
+                });
+
+                // Thêm Layout vào LinearLayout chính
+                linear_layout_booksnoibat.addView(bookLayout);
+
+            } while (cursorNoiBat.moveToNext());
+            cursorNoiBat.close();
+        }
+
+        // MOI XUAT BAN // -------------------------
 
         // LinearLayout chứa các mục sách
         LinearLayout linear_layout_books = findViewById(R.id.linear_layout_books);
@@ -263,61 +390,47 @@ public class MainTrangChuActivity extends Activity {
             }
         });
 
+//        //Tạo sự kiện click button đăng xuất thì tro ve trang dang nhap
+//        btn_DangXuat.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Đăng xuất người dùng
+//                SharedPreferences sharedPreferences = getSharedPreferences("AppBookPrefs", MODE_PRIVATE);
+//                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                editor.clear(); // Xóa toàn bộ dữ liệu SharedPreferences
+//                editor.apply(); // Lưu lại thay đổi
+//
+//                Intent intent = new Intent(MainTrangChuActivity.this, MainDangNhapActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
         //Tạo sự kiện click button đăng xuất thì tro ve trang dang nhap
         btn_DangXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Đăng xuất người dùng
-                SharedPreferences sharedPreferences = getSharedPreferences("AppBookPrefs", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.clear(); // Xóa toàn bộ dữ liệu SharedPreferences
-                editor.apply(); // Lưu lại thay đổi
+                // Hiển thị hộp thoại xác nhận
+                new AlertDialog.Builder(MainTrangChuActivity.this)
+                        .setTitle("Đăng xuất")
+                        .setMessage("Bạn có chắc chắn muốn đăng xuất không?")
+                        .setPositiveButton("Đăng xuất", (dialog, which) -> {
+                            // Thực hiện đăng xuất
+                            SharedPreferences sharedPreferences = getSharedPreferences("AppBookPrefs", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.clear(); // Xóa toàn bộ dữ liệu SharedPreferences
+                            editor.apply(); // Lưu lại thay đổi
 
-                Intent intent = new Intent(MainTrangChuActivity.this, MainDangNhapActivity.class);
-                startActivity(intent);
+                            // Chuyển về trang đăng nhập
+                            Intent intent = new Intent(MainTrangChuActivity.this, MainDangNhapActivity.class);
+                            startActivity(intent);
+                            finish(); // Kết thúc Activity hiện tại
+                        })
+                        .setNegativeButton("Hủy", null) // Đóng hộp thoại nếu nhấn Hủy
+                        .show();
             }
         });
 
 
-//        // Thêm sự kiện click cho nút Đăng xuất
-//        btn_DangXuat.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Tạo AlertDialog để xác nhận
-//                AlertDialog.Builder builder = new AlertDialog.Builder(MainTrangChuActivity.this);
-//                builder.setTitle("Xác nhận đăng xuất");
-//                builder.setMessage("Bạn có muốn đăng xuất không?");
-//
-//                // Nút Đồng ý
-//                builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        // Xóa dữ liệu đăng nhập (SharedPreferences)
-//                        SharedPreferences sharedPreferences = getSharedPreferences("AppBookPrefs", MODE_PRIVATE);
-//                        SharedPreferences.Editor editor = sharedPreferences.edit();
-//                        editor.clear(); // Xóa toàn bộ dữ liệu SharedPreferences
-//                        editor.apply(); // Lưu thay đổi
-//
-//                        // Chuyển sang màn hình đăng nhập
-//                        Intent intent = new Intent(MainTrangChuActivity.this, MainDangNhapActivity.class);
-//                        startActivity(intent);
-//                        finish(); // Kết thúc Activity hiện tại
-//                    }
-//                });
-//
-//                // Nút Hủy
-//                builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        // Đóng hộp thoại
-//                        dialogInterface.dismiss();
-//                    }
-//                });
-//
-//                // Hiển thị hộp thoại
-//                AlertDialog dialog = builder.create();
-//                dialog.show();
-//            }
-//        });
+
     }
 }

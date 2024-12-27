@@ -302,6 +302,20 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public Cursor GetTop10SachNoiBat() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery(
+                "SELECT * " +
+                        "FROM " + TABLE_TRUYEN + " t " +
+                        "JOIN " + TABLE_THELOAI + " tl ON t." + THELOAI_ID + " = tl." + THELOAI_ID + " " +
+                        "ORDER BY t." + TRUYEN_LUOTXEM + " DESC " +
+                        "LIMIT 10",
+                null
+        );
+    }
+
+
+
     public Cursor TimKiemSachTheoTheLoai(String query, String tentheloai) {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery(
@@ -364,34 +378,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery(query, new String[]{String.valueOf(taikhoan_id)});
     }
 
-
-//
-//    public Cursor getFavoritesByTaiKhoan(int taikhoan_id) {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//
-//        String query = "SELECT * FROM " + TABLE_YEUTHICH +
-//                " INNER JOIN " + TABLE_TRUYEN +
-//                " ON " + TABLE_YEUTHICH + "." + YEUTHICH_TRUYEN_ID + " = " + TABLE_TRUYEN + "." + TRUYEN_ID +
-//                " WHERE " + TABLE_YEUTHICH + "." + YEUTHICH_TAIKHOAN_ID + " = ?";
-//        return db.rawQuery(query, new String[]{String.valueOf(taikhoan_id)});
-//    }
-
-
-//    // Lấy danh sách đang đọc của người dùng theo taikhoan_id
-//    public Cursor getReadingListByTaiKhoan(int taikhoan_id) {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        String query = "SELECT * FROM " + TABLE_DANGDOC +
-//                " WHERE " + DANGDOC_TAIKHOAN_ID + " = ?";
-//        return db.rawQuery(query, new String[]{String.valueOf(taikhoan_id)});
-//    }
-
-
-    public Cursor getReadingListByTaiKhoan(int taikhoan_id) {
+    public Cursor getReadingByTaiKhoan(int taikhoan_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String query = "SELECT * FROM " + TABLE_DANGDOC +
                 " INNER JOIN " + TABLE_TRUYEN +
                 " ON " + TABLE_DANGDOC + "." + DANGDOC_TRUYEN_ID + " = " + TABLE_TRUYEN + "." + TRUYEN_ID +
+                " INNER JOIN " + TABLE_THELOAI +
+                " ON " + TABLE_TRUYEN + "." + TRUYEN_THELOAI_ID + " = " + TABLE_THELOAI + "." + THELOAI_ID +
                 " WHERE " + TABLE_DANGDOC + "." + DANGDOC_TAIKHOAN_ID + " = ?";
         return db.rawQuery(query, new String[]{String.valueOf(taikhoan_id)});
     }
@@ -404,6 +398,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 " WHERE " + DANGDOC_TAIKHOAN_ID + " = ? AND " + DANGDOC_TRUYEN_ID + " = ?";
         return db.rawQuery(query, new String[]{String.valueOf(taikhoan_id), String.valueOf(truyen_id)});
     }
+
+    // Xóa truyện khỏi bảng đang đọc
+    public void removeFromReading(int taikhoan_id, int truyen_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_DANGDOC, DANGDOC_TAIKHOAN_ID + " = ? AND " + DANGDOC_TRUYEN_ID + " = ?",
+                new String[]{String.valueOf(taikhoan_id), String.valueOf(truyen_id)});
+    }
+
 
     // Tăng lượt xem
     public void incrementViewCount(int truyen_id) {

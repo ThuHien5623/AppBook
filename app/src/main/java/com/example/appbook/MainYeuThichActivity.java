@@ -84,11 +84,11 @@ public class MainYeuThichActivity extends Activity {
                 LinearLayout bookLayout = new LinearLayout(this);
                 bookLayout.setOrientation(LinearLayout.VERTICAL);
                 bookLayout.setLayoutParams(new GridLayout.LayoutParams());
-                bookLayout.setPadding(15, 15, 15, 15);
+                bookLayout.setPadding(10, 10, 10, 10);
 
                 // Tạo FrameLayout cho hình ảnh
                 FrameLayout frameLayout = new FrameLayout(this);
-                frameLayout.setLayoutParams(new LinearLayout.LayoutParams(330, 500));
+                frameLayout.setLayoutParams(new LinearLayout.LayoutParams(330, 490));
                 frameLayout.setBackgroundResource(R.drawable.bt_img); // Đặt nền
                 frameLayout.setClipToOutline(true);
 
@@ -113,7 +113,7 @@ public class MainYeuThichActivity extends Activity {
                 TextView bookTitle = new TextView(this);
                 bookTitle.setText(truyen_tentruyen);
                 bookTitle.setTextColor(getResources().getColor(android.R.color.black));
-                bookTitle.setTextSize(20);
+                bookTitle.setTextSize(18);
                 bookTitle.setTypeface(null, Typeface.BOLD);  // Make title bold
 //                bookTitle.setTextStyle(TextView.BOLD);
                 bookTitle.setGravity(View.TEXT_ALIGNMENT_CENTER);
@@ -122,7 +122,7 @@ public class MainYeuThichActivity extends Activity {
                 // TextView cho tên tác giả
                 TextView bookAuthor = new TextView(this);
                 bookAuthor.setText(truyen_tentacgia);
-                bookAuthor.setTextSize(18);
+                bookAuthor.setTextSize(15);
                 bookAuthor.setGravity(View.TEXT_ALIGNMENT_CENTER);
                 bookLayout.addView(bookAuthor);
 

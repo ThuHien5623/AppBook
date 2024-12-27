@@ -142,155 +142,52 @@
                     android:layout_height="wrap_content"
                     android:fillViewport="true"
                     android:scrollbars="none">
+
                     <LinearLayout
+                        android:id="@+id/linear_layout_booksnoibat"
                         android:orientation="horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_margin="5dp">
-                        <!-- Các LinearLayouts cho từng book item, ví dụ: -->
-                        <!-- Mỗi LinearLayout này chứa một sách cùng với hình ảnh và tên sách -->
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp">
-                            <FrameLayout
-                                android:layout_width="130dp"
-                                android:layout_height="200dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/bt_img"
-                                android:clipToOutline="true">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/matbiec"
-                                    android:scaleType="centerCrop"
-                                    android:clipToOutline="true" />
-                            </FrameLayout>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Mắt biếc"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:textColor="@android:color/black"
-                                android:gravity="center"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Nguyễn Nhật Ánh"
-                                android:textSize="18sp"
-                                android:gravity="center"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp">
-                            <FrameLayout
-                                android:layout_width="130dp"
-                                android:layout_height="200dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/bt_img"
-                                android:clipToOutline="true">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/matbiec"
-                                    android:scaleType="centerCrop"
-                                    android:clipToOutline="true" />
-                            </FrameLayout>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Mắt biếc"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:textColor="@android:color/black"
-                                android:gravity="center"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Nguyễn Nhật Ánh"
-                                android:textSize="18sp"
-                                android:gravity="center"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp">
-                            <FrameLayout
-                                android:layout_width="130dp"
-                                android:layout_height="200dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/bt_img"
-                                android:clipToOutline="true">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/matbiec"
-                                    android:scaleType="centerCrop"
-                                    android:clipToOutline="true" />
-                            </FrameLayout>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Mắt biếc"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:textColor="@android:color/black"
-                                android:gravity="center"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Nguyễn Nhật Ánh"
-                                android:textSize="18sp"
-                                android:gravity="center"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp">
-                            <FrameLayout
-                                android:layout_width="130dp"
-                                android:layout_height="200dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/bt_img"
-                                android:clipToOutline="true">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/matbiec"
-                                    android:scaleType="centerCrop"
-                                    android:clipToOutline="true" />
-                            </FrameLayout>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Mắt biếc"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:textColor="@android:color/black"
-                                android:gravity="center"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Nguyễn Nhật Ánh"
-                                android:textSize="18sp"
-                                android:gravity="center"/>
-                        </LinearLayout>
-                        <!-- Thêm các LinearLayout khác cho các sách -->
+
+<!--                        <LinearLayout-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:layout_width="150dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:gravity="center"-->
+<!--                            android:paddingLeft="5dp"-->
+<!--                            android:paddingRight="5dp">-->
+<!--                            <FrameLayout-->
+<!--                                android:layout_width="130dp"-->
+<!--                                android:layout_height="200dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:background="@drawable/bt_img"-->
+<!--                                android:clipToOutline="true">-->
+<!--                                <ImageView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="match_parent"-->
+<!--                                    android:src="@drawable/matbiec"-->
+<!--                                    android:scaleType="centerCrop"-->
+<!--                                    android:clipToOutline="true" />-->
+<!--                            </FrameLayout>-->
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Mắt biếc"-->
+<!--                                android:textSize="20sp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                android:textColor="@android:color/black"-->
+<!--                                android:gravity="center"/>-->
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Nguyễn Nhật Ánh"-->
+<!--                                android:textSize="18sp"-->
+<!--                                android:gravity="center"/>-->
+<!--                        </LinearLayout>-->
+
+                        <!-- Thêm động các sách nổi bật -->
                     </LinearLayout>
                 </HorizontalScrollView>
 

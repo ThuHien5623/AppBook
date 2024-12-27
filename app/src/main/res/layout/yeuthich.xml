@@ -48,6 +48,8 @@
             android:layout_height="wrap_content"
             android:columnCount="3"
             android:padding="5dp">
+
+            <!-- Do dong cac sach-->
         </GridLayout>
 
 <!--        <GridLayout-->
