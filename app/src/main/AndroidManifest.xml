@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -27,6 +28,7 @@
         <activity android:name=".MainDangDocActivity"/>
         <activity android:name=".MainYeuThichActivity"/>
         <activity android:name=".MainChiTietBookActivity"/>
+        <activity android:name=".MainDocSachActivity"/>
         <activity android:name=".MainActivity"/>
 
     </application>

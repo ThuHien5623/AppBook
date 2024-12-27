@@ -1,5 +1,4 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -100,26 +99,30 @@
                 android:textSize="18sp" />
         </LinearLayout>
 
-
-
-
     </LinearLayout>
 
-    <!-- Nội dung cuộn văn bản -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="16dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="  Ngày xưa, vào những buổi chiều mưa, tôi và Hà Lan thường ngồi trên thềm nhà ngắm những giọt mưa rơi rả rích từ mái hiên, tạo nên những âm thanh trầm bổng. Chúng tôi thích thú với những giọt mưa lấp lánh trong ánh sáng nhạt dần của buổi chiều, cứ như thể mỗi giọt mưa là một chiếc chuông nhỏ ngân vang. Hà Lan khi ấy trông như một nàng tiên, mái tóc xõa dài ướt sũng, gương mặt rạng rỡ và đôi mắt lấp lánh một cách khó tả. Chính đôi mắt ấy đã khiến tôi lưu luyến mãi không thôi, một đôi mắt khiến cho cả thế giới của tôi thu nhỏ lại chỉ còn hai người. Mắt biếc ấy là cả tuổi thơ tôi, là niềm vui, là nỗi buồn, là tất cả những gì đẹp đẽ nhất mà tôi có.\n  Hà Lan giống như một cơn gió mùa thu, đến rồi đi, để lại trong tôi những cảm xúc mà tôi không bao giờ có thể quên. Có những ngày tôi đã cố gắng quên đi hình ảnh đôi mắt biếc ấy, nhưng càng cố quên thì ký ức càng trở nên rõ nét hơn. Mỗi khi tôi đi qua con đường làng, nhìn thấy cây bàng già bên lối cũ, tôi lại nhớ về những ngày xưa khi chúng tôi cùng nhau đi học, cười nói vô tư. Thời gian trôi qua, cây bàng vẫn ở đó, tán lá vẫn xanh rợp bóng, nhưng Hà Lan giờ đây đã trở thành một phần ký ức, xa cách như những đám mây trắng trôi qua bầu trời."
-            android:textSize="18sp"
-            android:lineSpacingExtra="6dp"
-            android:justificationMode="inter_word"
-            android:textColor="@android:color/black" />
-    </ScrollView>
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Nội dung cuộn văn bản -->
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:padding="16dp">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="  Ngày xưa, vào những buổi chiều mưa, tôi và Hà Lan thường ngồi trên thềm nhà ngắm những giọt mưa rơi rả rích từ mái hiên, tạo nên những âm thanh trầm bổng. Chúng tôi thích thú với những giọt mưa lấp lánh trong ánh sáng nhạt dần của buổi chiều, cứ như thể mỗi giọt mưa là một chiếc chuông nhỏ ngân vang. Hà Lan khi ấy trông như một nàng tiên, mái tóc xõa dài ướt sũng, gương mặt rạng rỡ và đôi mắt lấp lánh một cách khó tả. Chính đôi mắt ấy đã khiến tôi lưu luyến mãi không thôi, một đôi mắt khiến cho cả thế giới của tôi thu nhỏ lại chỉ còn hai người. Mắt biếc ấy là cả tuổi thơ tôi, là niềm vui, là nỗi buồn, là tất cả những gì đẹp đẽ nhất mà tôi có.\n  Hà Lan giống như một cơn gió mùa thu, đến rồi đi, để lại trong tôi những cảm xúc mà tôi không bao giờ có thể quên. Có những ngày tôi đã cố gắng quên đi hình ảnh đôi mắt biếc ấy, nhưng càng cố quên thì ký ức càng trở nên rõ nét hơn. Mỗi khi tôi đi qua con đường làng, nhìn thấy cây bàng già bên lối cũ, tôi lại nhớ về những ngày xưa khi chúng tôi cùng nhau đi học, cười nói vô tư. Thời gian trôi qua, cây bàng vẫn ở đó, tán lá vẫn xanh rợp bóng, nhưng Hà Lan giờ đây đã trở thành một phần ký ức, xa cách như những đám mây trắng trôi qua bầu trời."-->
+<!--            android:textSize="18sp"-->
+<!--            android:lineSpacingExtra="6dp"-->
+<!--            android:justificationMode="inter_word"-->
+<!--            android:textColor="@android:color/black" />-->
+<!--    </ScrollView>-->
 
 </LinearLayout>

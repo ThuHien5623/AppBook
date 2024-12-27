@@ -267,6 +267,36 @@ public class MainChiTietBookActivity extends Activity {
                         Log.d("MainChiTietBookActivity", "Truyen da co trong bang dang dọc");
                     }
                 }
+
+                // Lấy link sách
+                Cursor cursorlinksach = databasedoctruyen.getLinkSach(truyen_id);
+
+                if (cursorlinksach != null && cursorlinksach.moveToFirst()) {
+                    do {
+                        int columnIndexTruyenLink = cursorlinksach.getColumnIndex("truyen_link");
+                        String truyen_link = cursorlinksach.getString(columnIndexTruyenLink);
+
+                        Log.d("MainChiTietBookActivity", "Truyen_link" + truyen_link);
+
+                        Intent intent = new Intent(MainChiTietBookActivity.this, MainDocSachActivity.class);
+                        intent.putExtra("truyen_tentruyen", truyen_tentruyen);
+                        intent.putExtra("truyen_tentacgia", truyen_tentacgia);
+                        intent.putExtra("truyen_image", truyen_image);
+                        intent.putExtra("theloai_ten", theloai_ten);
+                        intent.putExtra("truyen_mota", truyen_mota);
+                        intent.putExtra("truyen_id", truyen_id);
+                        intent.putExtra("theloai_id", theloai_id);
+                        intent.putExtra("truyen_link", truyen_link);
+
+                        startActivity(intent);
+
+                    } while (cursorlinksach.moveToNext());
+                    cursorlinksach.close();
+                }
+
+
+
+
             }
         });
 

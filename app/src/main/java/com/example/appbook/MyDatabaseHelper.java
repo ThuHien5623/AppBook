@@ -391,6 +391,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    // Lấy link sách theo truyen_id
+    public Cursor getLinkSach(int truyen_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + TRUYEN_LINK + " FROM " + TABLE_TRUYEN +
+                " WHERE " + TRUYEN_ID + " = ?";
+        return db.rawQuery(query, new String[]{String.valueOf(truyen_id)});
+    }
+
     // Lấy danh sách đang đọc của người dùng theo taikhoan_id và truyen_id
     public Cursor getReadingList(int taikhoan_id, int truyen_id) {
         SQLiteDatabase db = this.getReadableDatabase();

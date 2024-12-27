@@ -390,21 +390,6 @@ public class MainTrangChuActivity extends Activity {
             }
         });
 
-//        //Tạo sự kiện click button đăng xuất thì tro ve trang dang nhap
-//        btn_DangXuat.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Đăng xuất người dùng
-//                SharedPreferences sharedPreferences = getSharedPreferences("AppBookPrefs", MODE_PRIVATE);
-//                SharedPreferences.Editor editor = sharedPreferences.edit();
-//                editor.clear(); // Xóa toàn bộ dữ liệu SharedPreferences
-//                editor.apply(); // Lưu lại thay đổi
-//
-//                Intent intent = new Intent(MainTrangChuActivity.this, MainDangNhapActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-
         //Tạo sự kiện click button đăng xuất thì tro ve trang dang nhap
         btn_DangXuat.setOnClickListener(new View.OnClickListener() {
             @Override

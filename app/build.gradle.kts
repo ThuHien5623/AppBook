@@ -50,7 +50,7 @@ android {
 }
 
 dependencies {
-
+    implementation("org.jsoup:jsoup:1.15.4") // Thêm JSoup trực tiếp
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
