@@ -276,7 +276,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
-    // Phương thức Lấy top 5 truyện theo tên thể loại mới nhất ừ dưới lên
+    // Phương thức Lấy top 5 truyện theo tên thể loại mới nhất từ dưới lên
     public Cursor GetTop5SachTheoTheLoai(String categoryName) {
         SQLiteDatabase db = this.getReadableDatabase();
         // Truy vấn top 5 truyện theo thể loại

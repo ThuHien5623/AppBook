@@ -3,17 +3,20 @@ package com.example.appbook;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.webkit.WebResourceError;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
 public class MainDocSachActivity extends Activity {
     private WebView webView;
+    ImageView back_icon;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +24,8 @@ public class MainDocSachActivity extends Activity {
 
         // Khởi tạo WebView
         webView = findViewById(R.id.webview);
+        webView = findViewById(R.id.webview);
+        back_icon = findViewById(R.id.back_icon);
 
         // Cấu hình WebView
         webView.getSettings().setJavaScriptEnabled(true);
@@ -69,6 +74,18 @@ public class MainDocSachActivity extends Activity {
         } else {
             Log.e("WebViewError", "Invalid URL: " + truyen_link);
         }
+
+
+        back_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (webView.canGoBack()) {
+                    webView.goBack(); // Quay lại trang trước trong WebView
+                } else {
+                    finish(); // Kết thúc Activity hiện tại để quay lại Activity trước đó
+                }
+            }
+        });
     }
 
     @Override
@@ -79,4 +96,5 @@ public class MainDocSachActivity extends Activity {
             super.onBackPressed(); // Thoát ứng dụng
         }
     }
+
 }

@@ -7,31 +7,30 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="10dp">
+        android:gravity="left"
+        android:orientation="horizontal">
 
-        <!-- Nút Trang chủ -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:padding="5dp">
+<!--        &lt;!&ndash; Nút Trang chủ &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:orientation="vertical"-->
+<!--            android:padding="5dp">-->
 
-            <ImageView
-                android:id="@+id/book_icon"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:src="@drawable/homepage" />
+<!--            <ImageView-->
+<!--                android:id="@+id/book_icon"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:src="@drawable/homepage" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Trang chủ"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Trang chủ"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="18sp" />-->
+<!--        </LinearLayout>-->
 
         <!-- Nút Quay lại -->
         <LinearLayout
@@ -39,7 +38,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="5dp">
 
             <ImageView
                 android:id="@+id/back_icon"
@@ -55,49 +54,49 @@
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <!-- Nút Yêu thích -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:padding="10dp">
+<!--        &lt;!&ndash; Nút Yêu thích &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:orientation="vertical"-->
+<!--            android:padding="10dp">-->
 
-            <ImageView
-                android:id="@+id/favorite_icon"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:src="@drawable/yeuthich" />
+<!--            <ImageView-->
+<!--                android:id="@+id/favorite_icon"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:src="@drawable/yeuthich" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Yêu thích"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Yêu thích"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="18sp" />-->
+<!--        </LinearLayout>-->
 
-        <!-- Nút Cài đặt -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:padding="10dp">
+<!--        &lt;!&ndash; Nút Cài đặt &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:orientation="vertical"-->
+<!--            android:padding="10dp">-->
 
-            <ImageView
-                android:id="@+id/settings_icon"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:src="@drawable/settings" />
+<!--            <ImageView-->
+<!--                android:id="@+id/settings_icon"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:src="@drawable/settings" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cài đặt"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Cài đặt"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="18sp" />-->
+<!--        </LinearLayout>-->
 
     </LinearLayout>
 

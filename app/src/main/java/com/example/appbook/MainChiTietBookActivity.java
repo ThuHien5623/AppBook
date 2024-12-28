@@ -36,7 +36,7 @@ public class MainChiTietBookActivity extends Activity {
         btnDocSach = findViewById(R.id.btnDocSach);
 
 
-        // Nhận dữ liệu từ Intent
+        // Nhận dữ liệu từ Intent đuược truền từ mainbooklist
         String truyen_tentruyen = getIntent().getStringExtra("truyen_tentruyen");
         String truyen_tentacgia = getIntent().getStringExtra("truyen_tentacgia");
         String truyen_image = getIntent().getStringExtra("truyen_image");
@@ -79,20 +79,21 @@ public class MainChiTietBookActivity extends Activity {
 
         // Lấy LinearLayout trong XML để chèn các mục sách vào
         LinearLayout linearLayout = findViewById(R.id.linearLayout);
-
+        //khơi tạo đoi tuong database
         databasedoctruyen = new MyDatabaseHelper(this);
 
-        // Lấy top 5 truyện theo thể loại
+        // Lấy top 5 truyện theo ten thể loại
         Cursor cursor = databasedoctruyen.GetTop5SachTheoTheLoai(theloai_ten);
-
+        //    kiem tra du lieu k rõng va bat dau tu dong dau tien va bat dau vong lap while
         if (cursor != null && cursor.moveToFirst()) {
             do {
+                //  tao chi muc cho tung cot du lieu
                 int columnIndexTitle = cursor.getColumnIndex("truyen_tentruyen");
                 int columnIndexAuthor = cursor.getColumnIndex("truyen_tentacgia");
                 int columnIndexImage = cursor.getColumnIndex("truyen_image");
                 int columnIndexMoTa = cursor.getColumnIndex("truyen_mota");
                 int columnIndexTruyenID = cursor.getColumnIndex("truyen_id");
-
+                //gan gia tri tung cot theo chi muc vao tung bien
                 String tentruyen = cursor.getString(columnIndexTitle);
                 String tentacgia = cursor.getString(columnIndexAuthor);
                 String image = cursor.getString(columnIndexImage);
