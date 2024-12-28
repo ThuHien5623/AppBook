@@ -179,6 +179,7 @@ public class MainTrangChuActivity extends Activity {
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT));
                 bookLayout.setGravity(Gravity.CENTER);
+//                bookLayout.setPadding(30, 15, 30, 15);
                 bookLayout.setPadding(30, 15, 30, 15);
 
                 // Creating FrameLayout for image

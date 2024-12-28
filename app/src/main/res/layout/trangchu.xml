@@ -119,8 +119,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10dp"
+                android:paddingBottom="15dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/bg_trangchu">
                 <!-- Đặt background cho cả phần này -->
 
@@ -132,8 +133,8 @@
                     android:text="NỔI BẬT"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginLeft="10dp" />
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp" />
 
 
                 <!-- Scroll ngang của Nổi bật -->
@@ -146,7 +147,7 @@
                     <LinearLayout
                         android:id="@+id/linear_layout_booksnoibat"
                         android:orientation="horizontal"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_margin="5dp">
@@ -199,7 +200,7 @@
                     android:text="MỚI XUẤT BẢN"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp" />
 
 
@@ -215,7 +216,8 @@
                         android:orientation="horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:layout_margin="5dp"/>
 
                         <!-- Các sách đổ động -->
 

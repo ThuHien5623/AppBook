@@ -8,7 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="left"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#127f78">
 
 <!--        &lt;!&ndash; Nút Trang chủ &ndash;&gt;-->
 <!--        <LinearLayout-->
@@ -44,14 +45,7 @@
                 android:id="@+id/back_icon"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:src="@drawable/back" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Quay lại"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:src="@drawable/undo" />
         </LinearLayout>
 
 <!--        &lt;!&ndash; Nút Yêu thích &ndash;&gt;-->
